@@ -33,8 +33,7 @@ class AuthServiceProvider extends ServiceProvider
 
         Passport::tokensExpireIn(now()->addHour(8));
         Passport::tokensCan([
-            'user' => 'User Type',
-            'company' => 'company User Type',
+            'admins' => 'Admin Type',
         ]);
     }
 }

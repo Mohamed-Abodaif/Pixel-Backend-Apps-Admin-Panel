@@ -12,6 +12,7 @@ function requirePhpFiles($directoryPath)
 Route::prefix('admin')->group(function () {
     requirePhpFiles(__DIR__ . '/APIs/SystemAdminPanel');
 });
+requirePhpFiles(__DIR__ . '/APIs/SystemAdminPanel/Auth');
 requirePhpFiles(__DIR__ . '/APIs/workSector/usersModule');
 requirePhpFiles(__DIR__ . '/APIs/workSector/CompanyModule');
 requirePhpFiles(__DIR__ . '/APIs/workSector/FinancesModule/CompanyTransactions');

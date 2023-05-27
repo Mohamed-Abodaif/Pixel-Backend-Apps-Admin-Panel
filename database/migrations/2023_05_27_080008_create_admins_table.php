@@ -19,8 +19,10 @@ class CreateAdminsTable extends Migration
             $table->string("name");
             $table->string('password');
             $table->string('mobile', 20)->unique();
-            $table->tinyInteger('status')->default(1);
+            $table->tinyInteger('is_active')->default(1);
             $table->foreignId("role_id")->nullable()->constrained("roles")->cascadeOnUpdate()->nullOnDelete();
+            $table->enum('gender', ['male', 'female'])->default('male');
+            $table->string('avatar')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

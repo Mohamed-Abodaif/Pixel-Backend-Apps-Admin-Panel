@@ -33,7 +33,7 @@ return new class extends Migration
         $this->schema->create('oauth_access_tokens', function (Blueprint $table) {
             $table->string('id', 100)->primary();
 
-            $table->foreignId("user_id")->nullable()->constrained("users")->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId("user_id")->nullable()->constrained("admins")->cascadeOnDelete()->cascadeOnUpdate();
 
             $table->unsignedBigInteger('client_id');
             $table->string('name')->nullable();

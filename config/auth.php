@@ -1,7 +1,6 @@
 <?php
 
-use App\Models\WorkSector\CompanyModule\Company;
-use App\Models\WorkSector\UsersModule\User;
+use App\Models\SystemAdminPanel\Admin;
 
 return [
 
@@ -18,7 +17,7 @@ return [
 
     'defaults' => [
         'guard' => 'api',
-        'passwords' => 'users',
+        'passwords' => 'admins',
     ],
 
     /*
@@ -41,15 +40,12 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'admins',
         ],
         'api' => [
             'driver' => 'passport',
-            'provider' => 'users',
-        ], 'company' => [
-            'driver' => 'passport',
-            'provider' => 'companies',
-        ],
+            'provider' => 'admins',
+        ]
     ],
 
     /*
@@ -70,13 +66,9 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'admins' => [
             'driver' => 'eloquent',
-            'model' => User::class,
-        ],
-        'companies' => [
-            'driver' => 'eloquent',
-            'model' => Company::class,
+            'model' => Admin::class,
         ],
 
         // 'users' => [
@@ -101,8 +93,8 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
+        'admins' => [
+            'provider' => 'admins',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
