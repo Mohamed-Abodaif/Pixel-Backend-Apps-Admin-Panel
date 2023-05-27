@@ -1,0 +1,163 @@
+[07-Jan-2023 21:31:43 UTC] PHP Fatal error:  App\Models\User cannot use Illuminate\Contracts\Auth\CanResetPassword - it is not a trait in /home/k8xs3dz66n2q/public_html/backend/app/Models/User.php on line 13
+[07-Jan-2023 21:32:01 UTC] PHP Fatal error:  App\Models\User cannot use Illuminate\Contracts\Auth\CanResetPassword - it is not a trait in /home/k8xs3dz66n2q/public_html/backend/app/Models/User.php on line 13
+[07-Jan-2023 21:32:10 UTC] PHP Fatal error:  App\Models\User cannot use Illuminate\Contracts\Auth\CanResetPassword - it is not a trait in /home/k8xs3dz66n2q/public_html/backend/app/Models/User.php on line 13
+[07-Jan-2023 21:34:04 UTC] PHP Fatal error:  App\Models\User cannot use Illuminate\Contracts\Auth\CanResetPassword - it is not a trait in /home/k8xs3dz66n2q/public_html/backend/app/Models/User.php on line 13
+[07-Jan-2023 21:34:05 UTC] PHP Fatal error:  App\Models\User cannot use Illuminate\Contracts\Auth\CanResetPassword - it is not a trait in /home/k8xs3dz66n2q/public_html/backend/app/Models/User.php on line 13
+[07-Jan-2023 21:34:08 UTC] PHP Fatal error:  App\Models\User cannot use Illuminate\Contracts\Auth\CanResetPassword - it is not a trait in /home/k8xs3dz66n2q/public_html/backend/app/Models/User.php on line 13
+[07-Jan-2023 21:34:40 UTC] PHP Fatal error:  App\Models\User cannot use Illuminate\Contracts\Auth\CanResetPassword - it is not a trait in /home/k8xs3dz66n2q/public_html/backend/app/Models/User.php on line 13
+[07-Jan-2023 21:37:54 UTC] PHP Fatal error:  App\Models\User cannot use Illuminate\Contracts\Auth\CanResetPassword - it is not a trait in /home/k8xs3dz66n2q/public_html/backend/app/Models/User.php on line 13
+[07-Jan-2023 21:41:04 UTC] PHP Fatal error:  App\Models\User cannot use Illuminate\Contracts\Auth\CanResetPassword - it is not a trait in /home/k8xs3dz66n2q/public_html/backend/app/Models/User.php on line 13
+[07-Jan-2023 21:46:31 UTC] PHP Fatal error:  App\Models\User cannot use Illuminate\Contracts\Auth\CanResetPassword - it is not a trait in /home/k8xs3dz66n2q/public_html/backend/app/Models/User.php on line 13
+[07-Jan-2023 21:46:34 UTC] PHP Fatal error:  App\Models\User cannot use Illuminate\Contracts\Auth\CanResetPassword - it is not a trait in /home/k8xs3dz66n2q/public_html/backend/app/Models/User.php on line 13
+[07-Jan-2023 21:46:36 UTC] PHP Fatal error:  App\Models\User cannot use Illuminate\Contracts\Auth\CanResetPassword - it is not a trait in /home/k8xs3dz66n2q/public_html/backend/app/Models/User.php on line 13
+[08-Jan-2023 08:07:52 UTC] PHP Fatal error:  App\Models\User cannot use Illuminate\Contracts\Auth\CanResetPassword - it is not a trait in /home/k8xs3dz66n2q/public_html/backend/app/Models/User.php on line 13
+[23-Jan-2023 11:09:48 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[23-Jan-2023 11:12:58 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[23-Jan-2023 14:54:07 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[23-Jan-2023 20:29:51 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[23-Jan-2023 20:43:41 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[23-Jan-2023 20:57:19 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[23-Jan-2023 21:31:58 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[23-Jan-2023 22:00:59 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[23-Jan-2023 22:13:37 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[23-Jan-2023 22:13:37 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[23-Jan-2023 22:25:18 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[23-Jan-2023 22:25:18 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[23-Jan-2023 22:45:47 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[23-Jan-2023 22:48:55 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[23-Jan-2023 22:49:06 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[23-Jan-2023 22:49:06 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 00:02:21 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 00:19:33 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 00:32:12 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 04:15:23 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 04:29:51 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 05:47:10 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 06:26:19 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 06:51:09 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 06:58:46 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 17:18:13 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 17:33:11 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 18:51:52 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 19:19:27 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 19:19:27 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 19:32:44 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 19:41:11 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 20:11:59 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 20:48:15 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 20:54:57 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 21:01:15 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 21:18:11 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 22:47:09 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 22:47:09 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 23:03:13 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[24-Jan-2023 23:14:05 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[25-Jan-2023 00:07:51 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[25-Jan-2023 00:19:23 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[25-Jan-2023 00:34:07 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[25-Jan-2023 00:36:25 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[25-Jan-2023 04:11:05 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[25-Jan-2023 04:27:32 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[25-Jan-2023 04:42:08 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[25-Jan-2023 10:27:35 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[25-Jan-2023 10:35:03 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[25-Jan-2023 10:35:03 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[25-Jan-2023 10:49:23 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[25-Jan-2023 10:49:23 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[25-Jan-2023 11:21:14 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[25-Jan-2023 12:20:13 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[25-Jan-2023 13:25:43 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[25-Jan-2023 13:49:34 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[25-Jan-2023 14:33:14 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 03:15:56 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 03:28:54 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 04:48:17 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 05:14:26 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 05:48:09 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 05:58:25 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 06:14:15 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 06:27:47 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 10:27:29 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 10:33:55 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 10:52:17 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 11:06:01 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 11:17:39 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 11:25:08 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 11:44:41 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 12:33:18 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 12:59:12 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 14:02:50 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 14:26:12 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 14:26:12 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 14:49:51 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 14:49:51 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 14:58:30 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 14:58:30 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 17:12:20 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 17:12:20 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 18:33:11 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 19:01:36 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 19:09:48 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 19:26:02 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 19:54:20 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 20:02:17 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 21:27:34 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 22:20:01 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 23:02:49 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 23:11:16 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 23:41:24 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[26-Jan-2023 23:59:32 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 00:13:18 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 00:14:20 UTC] PHP Warning:  require(/home/k8xs3dz66n2q/public_html/backend/vendor/composer/../psy/psysh/src/functions.php): Failed to open stream: No such file or directory in /home/k8xs3dz66n2q/public_html/backend/vendor/composer/autoload_real.php on line 76
+[27-Jan-2023 00:14:20 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/k8xs3dz66n2q/public_html/backend/vendor/composer/../psy/psysh/src/functions.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/k8xs3dz66n2q/public_html/backend/vendor/composer/autoload_real.php:76
+Stack trace:
+#0 /home/k8xs3dz66n2q/public_html/backend/vendor/composer/autoload_real.php(59): composerRequire66bdebc18278672c64180be20e3182d5()
+#1 /home/k8xs3dz66n2q/public_html/backend/vendor/autoload.php(7): ComposerAutoloaderInit66bdebc18278672c64180be20e3182d5::getLoader()
+#2 /home/k8xs3dz66n2q/public_html/backend/public/index.php(34): require('/home/k8xs3dz66...')
+#3 {main}
+  thrown in /home/k8xs3dz66n2q/public_html/backend/vendor/composer/autoload_real.php on line 76
+[27-Jan-2023 00:14:28 UTC] PHP Warning:  require(/home/k8xs3dz66n2q/public_html/backend/vendor/composer/../symfony/symfony/src/Symfony/Component/String/Resources/functions.php): Failed to open stream: No such file or directory in /home/k8xs3dz66n2q/public_html/backend/vendor/composer/autoload_real.php on line 76
+[27-Jan-2023 00:14:28 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/k8xs3dz66n2q/public_html/backend/vendor/composer/../symfony/symfony/src/Symfony/Component/String/Resources/functions.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/k8xs3dz66n2q/public_html/backend/vendor/composer/autoload_real.php:76
+Stack trace:
+#0 /home/k8xs3dz66n2q/public_html/backend/vendor/composer/autoload_real.php(59): composerRequire66bdebc18278672c64180be20e3182d5()
+#1 /home/k8xs3dz66n2q/public_html/backend/vendor/autoload.php(7): ComposerAutoloaderInit66bdebc18278672c64180be20e3182d5::getLoader()
+#2 /home/k8xs3dz66n2q/public_html/backend/public/index.php(34): require('/home/k8xs3dz66...')
+#3 {main}
+  thrown in /home/k8xs3dz66n2q/public_html/backend/vendor/composer/autoload_real.php on line 76
+[27-Jan-2023 00:28:03 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 07:04:40 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 07:33:24 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 07:42:31 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 09:08:37 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 09:28:56 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 09:28:56 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 09:59:43 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 10:22:44 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 10:31:48 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 10:36:23 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 10:37:53 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 10:37:53 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 11:05:09 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 11:17:33 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 11:30:47 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 11:30:47 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 11:44:23 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 11:44:23 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 11:57:48 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 12:21:02 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 12:21:02 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 12:27:54 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 12:38:25 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 12:51:19 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 13:20:44 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 13:45:26 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 14:07:10 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 15:52:51 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 16:17:16 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 16:40:13 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 16:53:47 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 17:31:25 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 17:38:33 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 17:54:12 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 18:06:31 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14
+[27-Jan-2023 19:14:38 UTC] PHP Deprecated:  Required parameter $code follows optional parameter $message in /home/k8xs3dz66n2q/public_html/backend/app/Macros/ReponseMacro.php on line 14

@@ -1,0 +1,13 @@
+app\Services\ModelDuplicatingService\ModelDuplicatingService.php => check function setRequestFormClass 
+
+app\Services\ModelDuplicatingService\ModelDuplicatingService.php => what the role of replicateRelationships
+
+app\Services\ModelDuplicatingService\ModelDuplicatingService.php => duplicate function exception must return 500 error
+
+app\Services\ModelDuplicatingService\ModelDuplicatingService.php => what about using promise for handling some sevices?
+
+------------
+app\Services\PreDefinitionsManagementServices\PreDefinitionDeletingService.php => DeleteWithConvenientDeletingType a simple improve (return once)
+
+
+--
