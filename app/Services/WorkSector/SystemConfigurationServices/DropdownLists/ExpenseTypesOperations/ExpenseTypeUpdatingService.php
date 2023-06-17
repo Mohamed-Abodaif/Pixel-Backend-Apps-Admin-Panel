@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\ExpenseTypesOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\ExpenseTypesOperations;
 
-use App\Http\Requests\SystemConfigurationsRequests\ExpenseTypes\UpdatingExpenseTypeRequest;
+use App\Http\Requests\WorkSector\SystemConfigurations\ExpenseTypes\UpdatingExpenseTypeRequest;
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationUpdatingService;
 
 class ExpenseTypeUpdatingService extends SystemConfigurationUpdatingService

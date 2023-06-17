@@ -26,8 +26,11 @@ use App\Http\Controllers\WorkSector\SystemConfigurationControllers\DropdownLists
     CustodySendersController,
     PaymentMethodsController,
     AssetsCategoriesController,
+    BranchesController,
+    CountriesController,
     PurchaseOrderTypeController,
-    TimeSheetCategoriesController
+    TimeSheetCategoriesController,
+    CompanyBankAccountsController
 };
 
 Route::prefix('list')->middleware(['auth:api'])->group(function () {
@@ -53,4 +56,8 @@ Route::prefix('list')->middleware(['auth:api'])->group(function () {
     Route::get('client-quotations', [ClientQuotationsController::class, 'list']);
     Route::get('client-tenders', [TendersController::class, 'list']);
     Route::get('timesheet-categories', [TimeSheetCategoriesController::class, 'list']);
+    Route::get('branches', [BranchesController::class, 'list']);
+    Route::get('responsible-persons', [EmployeeController::class, 'list']);
+    Route::get('countries', [CountriesController::class, 'list']);
+    Route::get('bank-accounts', [CompanyBankAccountsController::class, 'list']);
 });

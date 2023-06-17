@@ -5,7 +5,7 @@ namespace App\Http\Controllers\WorkSector\FinancesModule\SalesInvoices;
 use ExportBuilder;
 use Illuminate\Http\Request;
 use App\Import\ImportBuilder;
-use App\Http\Controllers\Controller;
+\use App\Http\Controllers\Controller;
 use Spatie\QueryBuilder\QueryBuilder;
 use App\Http\Resources\SingleResource;
 use Spatie\QueryBuilder\AllowedFilter;
@@ -14,6 +14,7 @@ use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\WorkSector\FinanceModule\SalesInvoices\SalesInvoice;
 use App\Http\Requests\WorkSector\FinancesModule\SalesInvoices\SaleInvoiceRequest;
 use App\Http\Resources\WorkSector\FinancesModule\SalesInvoices\SaleInvoiceResource;
+use App\Services\WorkSector\FinancesModule\SalesInvoicesService\SaleInvoicesStoringService;
 
 class SaleInvoicesController extends Controller
 {
@@ -47,31 +48,18 @@ class SaleInvoicesController extends Controller
         ]);
     }
 
-    public function store(SaleInvoiceRequest $request)
+    public function store(Request $request)
     {
         $data = $request->safe()->all();
         $invoice = new SalesInvoice($data);
-        #TODO
-        //calculate net value;
-        $invoice->rest_value = (float) $invoice->invoice_net_value;
-        $invoice->save();
-        $response = [
-            "message" => "Created Successfully",
-            "status" => "success"
-        ];
-        return response()->json($response, 200);
+        $data['rest_value'] = (float) $invoice->invoice_net_value;
+        return (new SaleInvoicesStoringService())->create($data);
     }
 
-    public function update($id, SaleInvoiceRequest $request)
+    public function update($id, Request $request)
     {
-        $data = $request->safe()->all();
         $purchaseInvoice = SalesInvoice::findOrFail($id);
-        $purchaseInvoice->update($data);
-        $response = [
-            "message" => "Updated Successfully",
-            "status" => "success"
-        ];
-        return response()->json($response, 200);
+        return (new SaleInvoicesUpdatingService($purchaseInvoice))->update($request);
     }
 
     public function destroy($id)

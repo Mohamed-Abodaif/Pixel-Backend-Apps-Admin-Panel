@@ -11,10 +11,11 @@ use App\Http\Resources\SingleResource;
 use Illuminate\Support\Facades\Response;
 use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\WorkSector\SystemConfigurationModels\Fees;
+use App\Http\Requests\WorkSector\SystemConfigurations\Fees\StoringFeeRequest;
 use App\Http\Resources\WorkSector\SystemConfigurationResources\DropdownLists\FeesResource;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\FeesOperations\FeesStoringService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\FeessOperations\FeesDeletingService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\FeessOperations\FeesUpdatingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\FeesOperations\FeesStoringService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\FeesOperations\FeesUpdatingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\FeesOperations\FeesDeletingService;
 
 class FeesController extends Controller
 {
@@ -45,9 +46,9 @@ class FeesController extends Controller
         return Response::success(['list' => $data]);
     }
 
-    public function show(Fees $department)
+    public function show(Fees $taxesOfficialFees)
     {
-        return new SingleResource($department);
+        return new SingleResource($taxesOfficialFees);
     }
 
     function list()
@@ -72,21 +73,21 @@ class FeesController extends Controller
 
     /**
      * @param Request $request
-     * @param Fees $department
+     * @param Fees $taxesOfficialFees
      * @return JsonResponse
      */
-    public function update(Request $request, Fees $department): JsonResponse
+    public function update(Request $request, Fees $taxesOfficialFees): JsonResponse
     {
-        return (new FeesUpdatingService($department))->update($request);
+        return (new FeesUpdatingService($taxesOfficialFees))->update($request);
     }
 
     /**
-     * @param Fees $department
+     * @param Fees $taxesOfficialFees
      * @return JsonResponse
      */
-    public function destroy(Fees $department): JsonResponse
+    public function destroy(Fees $taxesOfficialFees): JsonResponse
     {
-        return (new FeesDeletingService($department))->delete();
+        return (new FeesDeletingService($taxesOfficialFees))->delete();
     }
 
     public function importFeess(ImportFile $import)

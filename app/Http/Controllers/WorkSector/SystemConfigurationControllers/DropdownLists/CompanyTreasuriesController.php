@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Response;
 use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\WorkSector\SystemConfigurationModels\CompanyTreasury;
 use App\Http\Resources\WorkSector\SystemConfigurationResources\CompanyTreasuryResource;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\CompanyTreasuriesOperations\CompanyTreasuryStoringService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\CompanyTreasurysOperations\CompanyTreasuryDeletingService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\CompanyTreasurysOperations\CompanyTreasuryUpdatingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\CompanyTreasuriesOperations\CompanyTreasuryDeletingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\CompanyTreasuriesOperations\CompanyTreasuryStoringService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\CompanyTreasuriesOperations\CompanyTreasuryUpdatingService;
 
 class CompanyTreasuriesController extends Controller
 {
@@ -37,7 +37,7 @@ class CompanyTreasuriesController extends Controller
 
     public function index(Request $request)
     {
-        $data = QueryBuilder::for(CompanyTreasury::class)
+        $data = QueryBuilder::for(CompanyTreasury::class)->with(['branch','person','currency'])
             ->allowedFilters($this->filterable)
             ->datesFiltering()->customOrdering()
             ->paginate($request->pageSize ?? 10);
@@ -45,9 +45,9 @@ class CompanyTreasuriesController extends Controller
         return Response::success(['list' => $data]);
     }
 
-    public function show(CompanyTreasury $department)
+    public function show(CompanyTreasury $companyTreasury)
     {
-        return new SingleResource($department);
+        return new SingleResource($companyTreasury);
     }
 
     function list()
@@ -72,21 +72,21 @@ class CompanyTreasuriesController extends Controller
 
     /**
      * @param Request $request
-     * @param CompanyTreasury $department
+     * @param CompanyTreasury $companyTreasury
      * @return JsonResponse
      */
-    public function update(Request $request, CompanyTreasury $department): JsonResponse
+    public function update(Request $request, CompanyTreasury $companyTreasury): JsonResponse
     {
-        return (new CompanyTreasuryUpdatingService($department))->update($request);
+        return (new CompanyTreasuryUpdatingService($companyTreasury))->update($request);
     }
 
     /**
-     * @param CompanyTreasury $department
+     * @param CompanyTreasury $companyTreasury
      * @return JsonResponse
      */
-    public function destroy(CompanyTreasury $department): JsonResponse
+    public function destroy(CompanyTreasury $companyTreasury): JsonResponse
     {
-        return (new CompanyTreasuryDeletingService($department))->delete();
+        return (new CompanyTreasuryDeletingService($companyTreasury))->delete();
     }
 
     public function importCompanyTreasurys(ImportFile $import)

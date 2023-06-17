@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Response;
 use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\WorkSector\SystemConfigurationModels\Branch;
 use App\Http\Resources\WorkSector\SystemConfigurationResources\DropdownLists\BranchResource;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\BranchsOperations\BranchStoringService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\BranchsOperations\BranchDeletingService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\BranchesOperations\BranchUpdatingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\BranchesOperations\BranchStoringService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\BranchesOperations\BranchDeletingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\BranchesOperations\BranchUpdatingService;
 
 class BranchesController extends Controller
 {
@@ -37,7 +37,7 @@ class BranchesController extends Controller
 
     public function index(Request $request)
     {
-        $data = QueryBuilder::for(Branch::class)
+        $data = QueryBuilder::for(Branch::class)->with('parent')
             ->allowedFilters($this->filterable)
             ->datesFiltering()->customOrdering()
             ->paginate($request->pageSize ?? 10);
@@ -52,7 +52,7 @@ class BranchesController extends Controller
 
     function list()
     {
-        $data = QueryBuilder::for(Branch::class)
+        $data = QueryBuilder::for(Branch::class)->with('parent')
             ->allowedFilters(['name'])
             ->active()
             ->customOrdering('created_at', 'desc')
@@ -72,21 +72,21 @@ class BranchesController extends Controller
 
     /**
      * @param Request $request
-     * @param Branch $department
+     * @param Branch $branch
      * @return JsonResponse
      */
-    public function update(Request $request, Branch $department): JsonResponse
+    public function update(Request $request, Branch $branch): JsonResponse
     {
-        return (new BranchUpdatingService($department))->update($request);
+        return (new BranchUpdatingService($branch))->update($request);
     }
 
     /**
      * @param Branch $department
      * @return JsonResponse
      */
-    public function destroy(Branch $department): JsonResponse
+    public function destroy(Branch $branch): JsonResponse
     {
-        return (new BranchDeletingService($department))->delete();
+        return (new BranchDeletingService($branch))->delete();
     }
 
     public function importBranches(ImportFile $import)

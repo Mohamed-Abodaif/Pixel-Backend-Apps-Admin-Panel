@@ -6,7 +6,7 @@ use Exception;
 use Illuminate\Http\Request;
 use App\CustomLibs\ValidatorLib\Validator;
 use App\CustomLibs\ValidatorLib\ArrayValidator;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\MustCreatedMultiplexed;
+use App\Services\WorkSector\Interfaces\MustCreatedMultiplexed;
 
 trait ValidationOperationsTrait
 {
@@ -50,6 +50,7 @@ trait ValidationOperationsTrait
 
     protected function getFillablesValues(array $data, array $dateFields = []): array
     {
+
         $fillableValues = [];
         foreach ($data as $index => $row) {
             $fillables = $this->processFillableValues($row);

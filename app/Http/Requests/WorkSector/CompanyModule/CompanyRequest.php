@@ -35,13 +35,13 @@ class CompanyRequest extends BaseFormRequest
                 'country_id' => ['required', 'integer', 'exists:countries,id'],
                 'employees_no' => ['required', 'integer'],
                 'branches_no' => ['required', 'integer'],
-              //  'package_status' => ['nullable', Rule::in(['Basic', 'Upgraded-no-Due', 'Upgraded-in-Due', 'Upgraded-over-Due'])],
+                //  'package_status' => ['nullable', Rule::in(['Basic', 'Upgraded-no-Due', 'Upgraded-in-Due', 'Upgraded-over-Due'])],
                 'package_id' => ['nullable', 'exists:packages,id'],
                 'dates' => ['nullable', 'string'],
                 'admin_email' => ['required', 'email', 'unique:companies,admin_email'],
                 'billing_address' => ['nullable', 'string'],
                 'company_tax_type' => ['nullable', Rule::in(['free_zone_client', 'local_client', 'international_client'])],
-                'contacts'=>'required|array|min:1'
+                // 'contacts'=>'required|array|min:1'
             ];
         } elseif (request()->isMethod('PUT')) {
             return [

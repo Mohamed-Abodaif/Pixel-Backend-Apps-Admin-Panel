@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\PaymentMethodsOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\PaymentMethodsOperations;
 
-
+use App\Http\Requests\WorkSector\SystemConfigurations\PaymentMethods\UpdatingPaymentMethodRequest;
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationUpdatingService;
-use App\Http\Requests\SystemConfigurationsRequests\PaymentMethods\UpdatingPaymentMethodRequest;
 
 class PaymentMethodUpdatingService extends SystemConfigurationUpdatingService
 {

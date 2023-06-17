@@ -2,9 +2,9 @@
 
 namespace App\Services\WorkSector\CompanyModule;
 
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use App\Models\WorkSector\CompanyModule\Company;
-use Illuminate\Support\Str;
 
 class CompanyLoginService
 {
@@ -16,7 +16,7 @@ class CompanyLoginService
 
     function getCompanyById($request)
     {
-        Str::startsWith($request->company_id,'CO-') ? $companyId = $request->company_id: $companyId = "CO-$request->company_id";
+        Str::startsWith($request->company_id, 'CO-') ? $companyId = $request->company_id : $companyId = "CO-$request->company_id";
         return $this->company->whereCompanyId($companyId)->first();
     }
     public function login($request)

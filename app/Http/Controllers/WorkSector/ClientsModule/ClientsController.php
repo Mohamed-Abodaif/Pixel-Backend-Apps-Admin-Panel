@@ -6,6 +6,7 @@ use ExportBuilder;
 use Illuminate\Http\Request;
 use App\Import\ImportBuilder;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Spatie\QueryBuilder\QueryBuilder;
 use App\Http\Resources\SingleResource;
 use Rap2hpoutre\FastExcel\SheetCollection;
@@ -23,7 +24,7 @@ class ClientsController extends Controller
         'billing_address',
         'registration_no',
         'taxes_no',
-        'type',
+        'client_type',
         'status',
         'created_at'
     ];
@@ -42,7 +43,10 @@ class ClientsController extends Controller
     //
     public function index(Request $request)
     {
-        $data = QueryBuilder::for(Client::class)->allowedFilters($this->filterable)->datesFiltering()->customOrdering()->paginate(request()->pageSize ?? 10);
+        $data = QueryBuilder::for(Client::class)
+        ->with('country')->allowedFilters($this->filterable)
+            ->datesFiltering()->customOrdering()->paginate(request()->pageSize ?? 10);
+
         $statistics = $this->statistics(Client::class, $request, 'clients');
 
         return response()->success([
@@ -53,14 +57,13 @@ class ClientsController extends Controller
 
     public function list(Request $request)
     {
-        $pageSize = $request->pageSize ?? 10;
-        $clients = QueryBuilder::for(Client::class)
-            ->allowedFilters(['name'])
-            ->active()
-            ->customOrdering('created_at', 'desc')
-            ->get(['id', 'name']);
+        $data = QueryBuilder::for(Client::class)
+                            ->allowedFilters(['name'])
+                            ->active()
+                            ->customOrdering('created_at', 'desc')
+                            ->get(['id', 'name']);
 
-        return ClientResource::collection($clients);
+        return ClientResource::collection($data);
     }
 
     public function store(Request $request)
@@ -68,12 +71,12 @@ class ClientsController extends Controller
         return (new ClientStoringService())->create($request);
     }
 
-    public function update(Request $request, Client $client): JsonResponse
+    public function update(Request $request, Client $client)
     {
         return (new ClientUpdatingService($client))->update($request);
     }
 
-    public function  destroy(Client $client): JsonResponse
+    public function destroy(Client $client)
     {
         return (new ClientDeletingService($client))->delete();
     }

@@ -10,9 +10,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ProductCategory extends BaseModel
 {
-    use HasFactory;
+    use HasFactory;//SoftDeletes
 
     protected $table = "product_categories";
+    const ROUTE_PARAMETER_NAME = "category";
 
     protected $fillable = [
         'name',
@@ -27,6 +28,6 @@ class ProductCategory extends BaseModel
 
     public function scopeActive($query)
     {
-        $query->where('status', 1)->orderBy('created_at', 'desc');;
+        $query->where('status', 1)->orderBy('created_at', 'desc');
     }
 }

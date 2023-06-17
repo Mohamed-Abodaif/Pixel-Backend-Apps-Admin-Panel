@@ -33,8 +33,10 @@ class StoringPurchaseRequestRequest extends BaseFormRequest
                 'has_attachment' => 'required',
                 'department_id' => 'required|exists:departments,id',
                 'title' => 'required',
-                'pr_attachment' => 'string|required_if:has_attachment,==,true'
-        ];
+                'pr_attachment' => 'string|required_if:has_attachment,==,true',
+                'pr_requirements' => 'string',
+                'notes' => 'string',
+            ];
     }
 
     public function messages()
@@ -44,6 +46,5 @@ class StoringPurchaseRequestRequest extends BaseFormRequest
             "pr_duedate.required" => "Purchase Request PR Due  Date's  Has Not Been Sent  !",
             "title" => "Purchase Request's Title Has Not Been Sent !",
         ];
-        
     }
 }

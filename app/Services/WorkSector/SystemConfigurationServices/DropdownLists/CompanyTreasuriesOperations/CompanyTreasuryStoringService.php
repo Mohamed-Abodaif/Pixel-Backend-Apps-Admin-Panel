@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\CompanyTreasuriesOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\CompanyTreasuriesOperations;
 
 use Exception;
 use App\CustomLibs\ValidatorLib\Validator;
+use App\Http\Requests\WorkSector\SystemConfigurations\CompanyTreasury\StoringComapnyTreasuryRequest;
 use App\Models\WorkSector\SystemConfigurationModels\CompanyTreasury;
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationStoringService;
-use App\Http\Requests\SystemConfigurationsRequests\CompanyTreasurys\StoringCompanyTreasuryRequest;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\NeedToStoreDateFields;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\MustCreatedMultiplexed;
+use App\Services\WorkSector\Interfaces\NeedToStoreDateFields;
+use App\Services\WorkSector\Interfaces\MustCreatedMultiplexed;
 
 class CompanyTreasuryStoringService extends SystemConfigurationStoringService implements MustCreatedMultiplexed, NeedToStoreDateFields
 {
@@ -30,7 +30,7 @@ class CompanyTreasuryStoringService extends SystemConfigurationStoringService im
 
     protected function getRequestClass(): string
     {
-        return StoringCompanyTreasuryRequest::class;
+        return StoringComapnyTreasuryRequest::class;
     }
 
     //There Is No Key Will Be Used If IsItMultipleCreation returns false
@@ -42,7 +42,7 @@ class CompanyTreasuryStoringService extends SystemConfigurationStoringService im
 
     protected function getFillableColumns(): array
     {
-        return ["name", "status"];
+        return ['name','currency_id','user_id','branch_id', 'status'];
     }
 
     public function getDateFieldNames(): array

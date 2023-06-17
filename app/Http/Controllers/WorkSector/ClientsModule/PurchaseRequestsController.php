@@ -1,17 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\WorkSector\ClientsModule;
+namespace App\Http\Controllers\WorkSector\PurchaseRequestsModule;
 
 use Illuminate\Http\Request;
 use App\Export\ExportBuilder;
 use App\Import\ImportBuilder;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\WorkSector\ClientsModule\PurchaseRequestRequest;
 use Spatie\QueryBuilder\QueryBuilder;
 use App\Http\Resources\SingleResource;
 use Rap2hpoutre\FastExcel\SheetCollection;
-use App\Models\WorkSector\ClientsModule\PurchaseRequest;
-use App\Http\Requests\WorkSector\ClientsModule\PurchaseRequestRequest;
 use App\Http\Resources\WorkSector\ClientsModule\PurchaseRequestResource;
+use App\Models\WorkSector\ClientsModule\PurchaseRequest;
+use App\Services\WorkSector\ClientsModule\PurchaseRequestServices\PurchaseRequestDeletingService;
+use App\Services\WorkSector\ClientsModule\PurchaseRequestServices\PurchaseRequestStoringService;
+use App\Services\WorkSector\ClientsModule\PurchaseRequestServices\PurchaseRequestUpdatingService;
 
 class PurchaseRequestsController extends Controller
 {
@@ -24,6 +27,7 @@ class PurchaseRequestsController extends Controller
             ->get(['id', 'title as name']);
         return PurchaseRequestResource::collection($data);
     }
+    
     public function index(Request $request)
     {
         $data = QueryBuilder::for(PurchaseRequest::class)->with(['client', 'department'])->allowedFilters($this->filters())->datesFiltering()->customOrdering()->paginate(request()->pageSize ?? 10);
@@ -34,40 +38,20 @@ class PurchaseRequestsController extends Controller
         ]);
     }
 
-    public function store(PurchaseRequestRequest $request)
-    {
-        $data = $request->safe()->all();
-        $invoice = PurchaseRequest::create($data);
 
-        $response = [
-            "message" => "Created Successfully",
-            "status" => "success"
-        ];
-        return response()->json($response, 200);
+    public function store(Request $request)
+    {
+        return (new PurchaseRequestStoringService())->create($request);
     }
 
-    public function update($id, PurchaseRequestRequest $request)
+    public function update(Request $request, PurchaseRequest $client)
     {
-        $data = $request->safe()->all();
-        $purchaseInvoice = PurchaseRequest::findOrFail($id);
-        $purchaseInvoice->update($data);
-        $response = [
-            "message" => "Updated Successfully",
-            "status" => "success"
-        ];
-        return response()->json($response, 200);
+        return (new PurchaseRequestUpdatingService($client))->update($request);
     }
 
-    public function destroy($id)
+    public function destroy(PurchaseRequest $client)
     {
-        $purchaseInvoice = PurchaseRequest::findOrFail($id);
-        $purchaseInvoice->delete();
-
-        $response = [
-            "message" => "Deleted Successfully",
-            "status" => "success"
-        ];
-        return response()->json($response, 200);
+        return (new PurchaseRequestDeletingService($client))->delete();
     }
 
 

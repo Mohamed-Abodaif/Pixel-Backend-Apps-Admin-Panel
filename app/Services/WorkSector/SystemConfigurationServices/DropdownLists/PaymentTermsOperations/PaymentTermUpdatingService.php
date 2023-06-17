@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\PaymentTermsOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\PaymentTermsOperations;
 
-use App\Http\Requests\SystemConfigurationsRequests\PaymentTerms\UpdatingPaymentTermRequest;
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationUpdatingService;
+use App\Http\Requests\WorkSector\SystemConfigurations\PaymentTerms\UpdatingPaymentTermRequest;
 
 class PaymentTermUpdatingService extends SystemConfigurationUpdatingService
 {

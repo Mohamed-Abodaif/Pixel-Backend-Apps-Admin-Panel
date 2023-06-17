@@ -13,10 +13,10 @@ trait CalculateQueries
         switch ($context) {
             case 'clients':
                 $queries = [
-                    ["condition" => "type = 'FREE ZONE'", "message" => "freezone clients"],
-                    ["condition" => "type = 'LOCAL'", "message" => "local clients"],
-                    ["condition" => "type = 'INTERNATIONAL'", "message" => "international clients"],
-                    ["condition" => "type = 'NOT SPECIFIED'", "message" => "not specified clients"],
+                    ["condition" => "client_type = 'FREE ZONE'", "message" => "freezone clients"],
+                    ["condition" => "client_type = 'LOCAL'", "message" => "local clients"],
+                    ["condition" => "client_type = 'INTERNATIONAL'", "message" => "international clients"],
+                    ["condition" => "client_type = 'NOT SPECIFIED'", "message" => "not specified clients"],
                 ];
                 break;
             case 'employees':
@@ -27,10 +27,10 @@ trait CalculateQueries
                 break;
             case 'vendors':
                 $queries = [
-                    ["condition" => "type = 'FREE ZONE'", "message" => "freezone vendors"],
-                    ["condition" => "type = 'LOCAL'", "message" => "local vendors"],
-                    ["condition" => "type = 'INTERNATIONAL'", "message" => "international vendors"],
-                    ["condition" => "type = 'NOT SPECIFIED'", "message" => "not specified vendors"],
+                    ["condition" => "client_type = 'FREE ZONE'", "message" => "freezone vendors"],
+                    ["condition" => "client_type = 'LOCAL'", "message" => "local vendors"],
+                    ["condition" => "client_type = 'INTERNATIONAL'", "message" => "international vendors"],
+                    ["condition" => "client_type = 'NOT SPECIFIED'", "message" => "not specified vendors"],
                 ];
                 break;
             case 'purchase_invoices':

@@ -13,17 +13,17 @@ use App\Http\Requests\CreateEditRequest;
 use Illuminate\Database\Eloquent\Builder;
 use App\Models\WorkSector\UsersModule\User;
 use App\Http\Resources\WorkSector\HRModule\ExpenseResource;
-use App\Models\WorkSector\SystemConfigurationModels\Expense;
 use App\Http\Resources\WorkSector\UsersModule\EmployeeResource;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use App\Models\WorkSector\SystemConfigurationModels\ExpenseDiscussion;
+use App\Models\PersonalSector\PersonalTransactions\Outflow\Expense;
+use App\Models\PersonalSector\PersonalTransactions\Outflow\ExpenseDiscussion;
 
 class EmployeesExpensesController extends Controller
 {
 
     /**
      * @param Request $request
-     * 
+     *
      * @return AnonymousResourceCollection
      */
     public function list(): AnonymousResourceCollection
@@ -35,7 +35,7 @@ class EmployeesExpensesController extends Controller
     }
     /**
      * @param Request $request
-     * 
+     *
      * @return JsonResponse
      */
     public function index(Request $request): JsonResponse
@@ -52,7 +52,7 @@ class EmployeesExpensesController extends Controller
     /**
      * @param Request $request
      * @param int $id
-     * 
+     *
      * @return JsonResponse
      */
     public function employeeExpenses(Request $request, int $id): AnonymousResourceCollection
@@ -73,7 +73,7 @@ class EmployeesExpensesController extends Controller
 
     /**
      * @param Request $request
-     * 
+     *
      * @return JsonResponse
      */
     public function listEmployees(Request $request): JsonResponse
@@ -126,7 +126,7 @@ class EmployeesExpensesController extends Controller
 
     /**
      * @param int $id
-     * 
+     *
      * @return JsonResponse
      */
     public function acceptExpense(int $id)
@@ -148,7 +148,7 @@ class EmployeesExpensesController extends Controller
 
     /**
      * @param int $id
-     * 
+     *
      * @return JsonResponse
      */
     public function rejectExpense(int $id): JsonResponse
@@ -166,7 +166,7 @@ class EmployeesExpensesController extends Controller
 
     /**
      * @param CreateEditRequest $request
-     * 
+     *
      * @return JsonResponse
      */
     public function editRequest(CreateEditRequest $request)
@@ -221,7 +221,7 @@ class EmployeesExpensesController extends Controller
 
     /**
      * @param int $id
-     * 
+     *
      * @return JsonResponse
      */
     public function destroy(int $id): JsonResponse
@@ -238,7 +238,7 @@ class EmployeesExpensesController extends Controller
 
     /**
      * @param int $id
-     * 
+     *
      * @return ExpenseResource
      */
     public function show(int $id): ExpenseResource
@@ -295,7 +295,7 @@ class EmployeesExpensesController extends Controller
 
     /**
      * @param mixed $status
-     * 
+     *
      * @return array
      */
     private function getStatisticsFilter(?string $status): array

@@ -3,7 +3,7 @@
 namespace App\Http\Requests\WorkSector\ClientsModule;
 
 use App\Http\Requests\BaseFormRequest;
-use App\Http\Requests\WorkSector\SystemConfigurationsRequests\StoringRequest;
+use App\Http\Requests\WorkSector\SystemConfigurations\StoringRequest;
 use App\Models\WorkSector\ClientsModule\Client;
 use Illuminate\Validation\Rule;
 
@@ -33,12 +33,12 @@ class UpdatingClientRequest extends BaseFormRequest
     {
         return
             [
-            "name" => ["bail", "nullable", Rule::unique($this->getTableName())->ignore($this->getIgnoringIdValue())],
-            'billing_address' => "max:255",
-            'type' => 'in:FREE ZONE,LOCAL,INTERNATIONAL,NOT SPECIFIED',
-            "taxes_no" =>Rule::unique($this->getTableName())->ignore($this->getIgnoringIdValue()),
-            "registration_no" => Rule::unique($this->getTableName())->ignore($this->getIgnoringIdValue()),
-        ];
+                "name" => ["bail", "nullable", Rule::unique($this->getTableName())->ignore($this->getIgnoringIdValue())],
+                'billing_address' => "max:255",
+                "taxes_no" => Rule::unique($this->getTableName())->ignore($this->getIgnoringIdValue()),
+                "registration_no" => Rule::unique($this->getTableName())->ignore($this->getIgnoringIdValue()),
+                'client_type' => [Rule::in(['free_zone', 'local', 'international', 'individual'])],
+            ];
     }
 
     public function messages()
@@ -46,14 +46,14 @@ class UpdatingClientRequest extends BaseFormRequest
         return [
             "name.string" => "Client's Name Must Be String !",
             "max" => "Client's Name Must Not Be Greater THan 255 Character !",
-            "name.unique" => "Client's Name  Is Already Stored In Our Database !"
+            "name.unique" => "Client's Name  Is Already Stored In Our Database !",
+            'type.in' => 'Client Type It Must Be Free Zone Or Local Or International Or Not Specified',
+
         ];
-        
     }
 
     protected function getIgnoringIdValue(): int
     {
         return request()->route($this->getModelName()::ROUTE_PARAMETER_NAME)->id;
     }
-
 }

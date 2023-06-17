@@ -2,9 +2,9 @@
 
 namespace App\Services\WorkSector\ClientsModule\PurchaseRequestServices;
 
-use App\Services\WorkSector\WorkSectorDeletingService;
+use App\Services\CoreServices\CRUDServices\CRUDServiceTypes\DeletingService;
 
-class PurchaseRequestDeletingService extends WorkSectorDeletingService
+class PurchaseRequestDeletingService extends DeletingService
 {
 
     protected function getDefinitionDeletingFailingErrorMessage(): string

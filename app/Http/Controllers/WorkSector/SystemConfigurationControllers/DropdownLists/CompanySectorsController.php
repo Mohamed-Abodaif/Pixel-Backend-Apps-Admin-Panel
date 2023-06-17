@@ -12,7 +12,7 @@ use App\Http\Resources\SingleResource;
 use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\WorkSector\SystemConfigurationModels\CompanySector;
 use App\Http\Resources\WorkSector\SystemConfigurationResources\DropdownLists\CompanySectorsResource;
-use App\Http\Requests\WorkSector\SystemConfigurationsRequests\CompanySectorRequests\CompanySectorsRequest;
+use App\Http\Requests\WorkSector\SystemConfigurations\CompanySectorRequests\CompanySectorsRequest;
 
 class CompanySectorsController extends Controller
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\TaxTypesOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\TaxTypesOperations;
 
-use App\Http\Requests\SystemConfigurationsRequests\TaxTypes\UpdatingTaxTypeRequest;
+use App\Http\Requests\WorkSector\SystemConfigurations\TaxTypes\UpdatingTaxTypeRequest;
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationUpdatingService;
 
 class TaxTypeUpdatingService extends SystemConfigurationUpdatingService

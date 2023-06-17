@@ -13,6 +13,7 @@ class MeasurementUnit extends BaseModel
     use HasFactory;
 
     protected $table = "measurement_unites";
+    const ROUTE_PARAMETER_NAME = "measurementUnit";
 
     protected $fillable = [
         'name',

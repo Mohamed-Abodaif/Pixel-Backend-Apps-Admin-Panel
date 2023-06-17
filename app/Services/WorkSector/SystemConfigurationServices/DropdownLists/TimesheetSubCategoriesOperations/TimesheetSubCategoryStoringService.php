@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\TimesheetSubCategoriesOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\TimesheetSubCategoriesOperations;
 
-use Exception;
 use App\CustomLibs\ValidatorLib\Validator;
+use App\Http\Requests\WorkSector\SystemConfigurations\TimesheetSubCategories\StoringTimesheetSubCategoryRequest;
 use App\Models\WorkSector\SystemConfigurationModels\TimeSheetSubCategory;
+use App\Services\WorkSector\Interfaces\NeedToStoreDateFields;
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationStoringService;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\NeedToStoreDateFields;
-use App\Http\Requests\WorkSector\SystemConfigurationsRequests\TimesheetSubCategories\StoringTimesheetSubCategoryRequest;
+use Exception;
 
 class TimesheetSubCategoryStoringService extends SystemConfigurationStoringService implements NeedToStoreDateFields
 {
@@ -39,7 +39,7 @@ class TimesheetSubCategoryStoringService extends SystemConfigurationStoringServi
 
     protected function getFillableColumns(): array
     {
-        return ['name', 'timesheet_category_id', 'options', "status"];
+        return ['name', 'timesheet_category_id', 'options', 'status'];
     }
     public function getDateFieldNames(): array
     {
@@ -61,25 +61,36 @@ class TimesheetSubCategoryStoringService extends SystemConfigurationStoringServi
 
     private function changeMultiCreationOptionsDataType(): void
     {
-        $dataKey = $this->getRequestDataKey();
-        $data = $this->data[$dataKey];
+        $key = $this->getRequestDataKey();
+        $data = $this->data[$key] ?? [];
+
         for ($i = 0; $i < count($data); $i++) {
-            $options = $data[$i]["options"];
+            $options = isset($data[$i]) && isset($data[$i]["options"]) ? $data[$i]["options"] : [];
             if (is_array($options)) {
                 $data[$i]["options"] = json_encode($options);
             }
         }
-        $this->data[$dataKey] = $data;
+        $this->data[$key] = $data;
     }
 
+
+    //TODO: must review this fun
     protected function doBeforeOperation(): self
     {
-        //Handling options value
+
+        // Handling multiple options value
         if ($this->IsItMultipleCreation()) {
             $this->changeMultiCreationOptionsDataType();
             return $this;
         }
-        $this->data["options"] = json_encode($this->data["options"]);
+        // Handling single options value
+        $key = $this->getRequestDataKey();
+        if (isset($this->data[$key][0])) {
+            $oldData = $this->data[$key][0];
+            $oldData["options"] = json_encode($oldData["options"]);
+            $this->data = $oldData;
+        }
         return $this;
     }
+
 }

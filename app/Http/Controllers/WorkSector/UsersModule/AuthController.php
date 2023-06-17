@@ -24,6 +24,7 @@ class AuthController extends Controller
 {
     public function login(Request $request): JsonResponse
     {
+        // return response()->json(auth()->user());
         return (new LoginService())->login($request);
     }
 
@@ -68,10 +69,10 @@ class AuthController extends Controller
         return (new UserEmailChangerService(auth("api")->user()))->change($request);
     }
 
-    
+
     public function logout(): JsonResponse
     {
-        auth("api")->user()?->tokens()->delete();
+        auth()->logout();
         return Response::success([], ["logout success"], 200);
     }
 
@@ -83,5 +84,11 @@ class AuthController extends Controller
     public function resetPassword(Request $request): JsonResponse
     {
         return (new ResetPasswordService())->reset($request);
+    }
+    function refreshToken()
+    {
+        return response()->json([
+            "token" => auth()->refresh()
+        ]);
     }
 }

@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Response;
 use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\WorkSector\SystemConfigurationModels\Department;
 use App\Http\Resources\WorkSector\SystemConfigurationResources\DropdownLists\DepartmentResource;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\DepartmentsOperations\DepartmentStoringService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\DepartmentsOperations\DepartmentDeletingService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\DepartmentsOperations\DepartmentUpdatingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\DepartmentsOperations\DepartmentStoringService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\DepartmentsOperations\DepartmentDeletingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\DepartmentsOperations\DepartmentUpdatingService;
 
 class DepartmentsController extends Controller
 {
@@ -30,14 +30,14 @@ class DepartmentsController extends Controller
         // $this->middleware('permission:read_sc-dropdown-lists')->only(['show']);
         // $this->middleware('permission:edit_sc-dropdown-liste')->only(['update']);
         // $this->middleware('permission:delete_sc-dropdown-lists')->only(['destroy']);
-        // $this->middleware('permission:import_sc-dropdown-lists')->only(['importDepartments']);
-        // $this->middleware('permission:export_sc-dropdown-lists')->only(['exportDepartments']);
+        // $this->middleware('permission:import_sc-dropdown-lists')->only(['importDepartmentes']);
+        // $this->middleware('permission:export_sc-dropdown-lists')->only(['exportDepartmentes']);
 
     }
 
     public function index(Request $request)
     {
-        $data = QueryBuilder::for(Department::class)
+        $data = QueryBuilder::for(Department::class)->with('parent')
             ->allowedFilters($this->filterable)
             ->datesFiltering()->customOrdering()
             ->paginate($request->pageSize ?? 10);
@@ -52,7 +52,7 @@ class DepartmentsController extends Controller
 
     function list()
     {
-        $data = QueryBuilder::for(Department::class)
+        $data = QueryBuilder::for(Department::class)->with('parent')
             ->allowedFilters(['name'])
             ->active()
             ->customOrdering('created_at', 'desc')
@@ -89,7 +89,7 @@ class DepartmentsController extends Controller
         return (new DepartmentDeletingService($department))->delete();
     }
 
-    public function importDepartments(ImportFile $import)
+    public function importDepartmentes(ImportFile $import)
     {
         $file = $import->file;
 
@@ -102,15 +102,15 @@ class DepartmentsController extends Controller
             ->import();
     }
 
-    public function exportDepartments(Request $request)
+    public function exportDepartmentes(Request $request)
     {
         $taxes = QueryBuilder::for(Department::class)->allowedFilters($this->filterable)->datesFiltering()->customOrdering()->cursor();
         $list  = new SheetCollection([
-            "Departments" => ExportBuilder::generator($taxes)
+            "Departmentes" => ExportBuilder::generator($taxes)
         ]);
         return (new ExportBuilder($request->type))
             ->withSheet($list)
             ->map(fn ($item) => ['No.' => $item['id'], 'Name' => $item['name'], 'Status' => $item['status']['label']])
-            ->name('Departments')->build();
+            ->name('Departmentes')->build();
     }
 }

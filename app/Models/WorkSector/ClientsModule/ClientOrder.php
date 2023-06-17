@@ -2,6 +2,7 @@
 
 namespace App\Models\WorkSector\ClientsModule;
 
+use App\Interfaces\HasStorageFolder;
 use App\Models\BaseModel;
 use App\Traits\Calculations;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -13,7 +14,7 @@ use App\Models\WorkSector\SystemConfigurationModels\Currency;
 use App\Models\WorkSector\SystemConfigurationModels\Department;
 use App\Models\WorkSector\SystemConfigurationModels\PaymentTerm;
 
-class ClientOrder extends BaseModel
+class ClientOrder extends BaseModel implements HasStorageFolder
 {
     use HasFactory, Calculations, SoftDeletes;
 
@@ -59,5 +60,15 @@ class ClientOrder extends BaseModel
     public function department(): BelongsTo
     {
         return $this->belongsTo(Department::class);
+    }
+
+    public function getDocumentsStorageFolderName(): string
+    {
+        return "ClientOrdersFiles/" . $this->order_number;
+    }
+
+    public function getNamingPropertyName(): string
+    {
+        return "";
     }
 }

@@ -6,8 +6,8 @@ use App\CustomLibs\CustomFileSystem\S3CustomFileSystem\CustomFileUploader\S3Cust
 use App\Models\Country;
 use App\Models\RoleModel;
 use App\Models\SystemConfig\Department;
-use App\Models\User;
-use App\Models\UserProfile;
+use App\Models\WorkSector\UsersModule\User;
+use App\Models\WorkSector\UsersModule\UserProfile;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Collection;
 

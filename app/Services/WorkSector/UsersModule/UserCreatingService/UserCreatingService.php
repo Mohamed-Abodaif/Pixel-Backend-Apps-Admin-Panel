@@ -117,10 +117,10 @@ class UserCreatingService
         return $this->processPassportFilesInfo($data, $userFolderName);
     }
 
-    // private function sendEmailVerificationNotification(User $user): bool | JsonResponse
-    // {
-    //     return (new VerificationNotificationSender())->setUser($user)->send();
-    // }
+//     private function sendEmailVerificationNotification(User $user): bool | JsonResponse
+//     {
+//         return (new VerificationNotificationSender())->setUser($user)->send();
+//     }
     function sendEmailVerificationNotification(User $user)
     {
         $token = generateVerificationToken($user, 'email');

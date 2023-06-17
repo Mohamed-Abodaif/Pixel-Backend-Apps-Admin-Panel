@@ -4,8 +4,9 @@ namespace App\Http\Resources\WorkSector\UsersModule;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\WorkSector\UsersModule\UserProfileResource;
-use App\Http\Resources\WorkSector\SystemConfigurationResources\DropdownLists\DepartmentResource;
 use App\Http\Resources\WorkSector\SystemConfigurationResources\RolesAndPermissions\RoleResource;
+use App\Http\Resources\WorkSector\SystemConfigurationResources\DropdownLists\DepartmentResource;
+use App\Models\WorkSector\UsersModule\User;
 
 class UserResource extends JsonResource
 {
@@ -15,13 +16,13 @@ class UserResource extends JsonResource
         if ($this->role != null) {
             $dataArrayToChange["role"] = new RoleResource($this->role);
             //Adding permissions to data array
-           $dataArrayToChange["permissions"] = $this->role->permissions()->pluck("name")->toArray();
-        //    $dataArrayToChange["permissions"] = $this->getAllPermissions();
+            $dataArrayToChange["permissions"] = $this->role->permissions()->pluck("name")->toArray();
+            //    $dataArrayToChange["permissions"] = $this->getAllPermissions();
 
 
             //unsetting permissions from user role's array (there is no need to serialize it with user data)
-           // unset($this->role);
-          //  return $dataArrayToChange;
+            // unset($this->role);
+            //  return $dataArrayToChange;
         }
 
 
@@ -37,7 +38,8 @@ class UserResource extends JsonResource
             unset($this->department);
             // return $dataArrayToChange;
         }
-        return $dataArrayToChange;    }
+        return $dataArrayToChange;
+    }
     /**
      * Transform the resource into an array.
      *
@@ -59,8 +61,18 @@ class UserResource extends JsonResource
 
 
         //Adding User Access Token
-        $data['token'] = $this->createToken("userToken")->accessToken;
+        $data['token'] = auth()->login(User::find($this->id));
 
         return $data;
+    }
+
+    protected function createNewToken($token)
+    {
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => auth()->factory()->getTTL() * 60,
+            'user' => auth()->user()
+        ]);
     }
 }

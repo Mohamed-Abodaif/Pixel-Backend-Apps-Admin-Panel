@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\CustodySendersOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\CustodySendersOperations;
 
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationDeletingService;
 

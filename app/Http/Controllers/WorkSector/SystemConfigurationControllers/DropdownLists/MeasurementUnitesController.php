@@ -10,8 +10,12 @@ use Spatie\QueryBuilder\QueryBuilder;
 use App\Http\Resources\SingleResource;
 use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\WorkSector\SystemConfigurationModels\MeasurementUnit;
-use App\Http\Requests\WorkSector\SystemConfigurationsRequests\MeasurementUnits\MeasurementUnitRequest;
+use App\Http\Requests\WorkSector\SystemConfigurations\MeasurementUnits\MeasurementUnitRequest;
 use App\Http\Resources\WorkSector\SystemConfigurationResources\DropdownLists\MeasuremenstUnitesResource;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\MeasurementUnitsOperations\MeasurementUnitDeletingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\MeasurementUnitsOperations\MeasurementUnitStoringService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\MeasurementUnitsOperations\MeasurementUnitUpdatingService;
+use Illuminate\Http\JsonResponse;
 
 class MeasurementUnitesController extends Controller
 {
@@ -39,7 +43,7 @@ class MeasurementUnitesController extends Controller
             ->datesFiltering()->customOrdering()
             ->paginate($request->pageSize ?? 10);
 
-        return response()->success(['list' => $data], 'Asset Category created successfully.', 200);
+        return response()->success(['list' => $data], ['Asset Category created successfully.'], 200);
     }
 
     function list(Request $request)
@@ -58,42 +62,28 @@ class MeasurementUnitesController extends Controller
         return new SingleResource($item);
     }
 
-    public function store(MeasurementUnitRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->items;
-        MeasurementUnit::insert($data);
-        $response = [
-            "message" => "Created Successfully",
-            "status" => "success"
-        ];
-        return response()->json($response, 200);
+        return (new MeasurementUnitStoringService())->create($request);
     }
 
-    public function update(MeasurementUnitRequest $request, $id)
+    /**
+     * @param Request $request
+     * @param MeasurementUnit $measurementUnit
+     * @return JsonResponse
+     */
+    public function update(Request $request, MeasurementUnit $measurementUnit): JsonResponse
     {
-        $data = $request->input();
-
-
-        $measurement_unite = MeasurementUnit::findOrFail($id);
-        $measurement_unite->update($data);
-        $response = [
-            "message" => "Updated Successfully",
-            "status" => "success",
-            "data" => $measurement_unite
-        ];
-        return response()->json($response, 200);
+        return (new MeasurementUnitUpdatingService($measurementUnit))->update($request);
     }
 
-    public function destroy($id)
+    /**
+     * @param MeasurementUnit $measurementUnit
+     * @return JsonResponse
+     */
+    public function destroy(MeasurementUnit $measurementUnit): JsonResponse
     {
-        $measurement_unite = MeasurementUnit::findOrFail($id);
-        $measurement_unite->delete();
-
-        $response = [
-            "message" => "Deleted Successfully",
-            "status" => "success"
-        ];
-        return response()->json($response, 200);
+        return (new MeasurementUnitDeletingService($measurementUnit))->delete();
     }
 
     public function importProductsCategoies(ImportFile $import)

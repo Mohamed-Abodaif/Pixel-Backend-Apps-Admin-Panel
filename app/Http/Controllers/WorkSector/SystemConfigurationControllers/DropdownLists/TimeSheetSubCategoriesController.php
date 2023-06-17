@@ -10,12 +10,13 @@ use App\Http\Resources\SingleResource;
 use Illuminate\Support\Facades\Response;
 use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\WorkSector\SystemConfigurationModels\TimeSheetSubCategory;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\TimesheetSubCategoriesOperations\TimesheetSubCategoryStoringService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\TimesheetSubCategoriesOperations\TimesheetSubCategoryDeletingService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\TimesheetSubCategoriesOperations\TimesheetSubCategoryUpdatingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\TimesheetSubCategoriesOperations\TimesheetSubCategoryStoringService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\TimesheetSubCategoriesOperations\TimesheetSubCategoryDeletingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\TimesheetSubCategoriesOperations\TimesheetSubCategoryUpdatingService;
 
 class TimeSheetSubCategoriesController extends Controller
 {
+    //TODO: fix missing options 
     protected $filterable = [
         'name',
         'status',
@@ -26,18 +27,20 @@ class TimeSheetSubCategoriesController extends Controller
     public function index(Request $request)
     {
         $data = QueryBuilder::for(TimeSheetSubCategory::class)
-            ->allowedIncludes(['category'])
             ->allowedFilters($this->filterable)
             ->active()
+            ->with('category')
             ->datesFiltering()
             ->customOrdering()
             ->paginate($request->pageSize ?? 10);
-        return Response::success(['list' => $data]);
+
+         
+            return Response::success(['list' => $data]);
     }
 
-    public function show(TimeSheetSubCategory $category)
+    public function show(TimeSheetSubCategory $subcategory)
     {
-        return new SingleResource($category);
+        return new SingleResource($subcategory);
     }
 
     public function store(Request $request): JsonResponse
@@ -45,14 +48,14 @@ class TimeSheetSubCategoriesController extends Controller
         return (new TimesheetSubCategoryStoringService())->create($request);
     }
 
-    public function update(Request $request, TimeSheetSubCategory $category): JsonResponse
+    public function update(Request $request, TimeSheetSubCategory $subcategory): JsonResponse
     {
-        return (new TimesheetSubCategoryUpdatingService($category))->update($request);
+        return (new TimesheetSubCategoryUpdatingService($subcategory))->update($request);
     }
 
-    public function destroy(TimeSheetSubCategory $category): JsonResponse
+    public function destroy(TimeSheetSubCategory $subcategory): JsonResponse
     {
-        return (new TimesheetSubCategoryDeletingService($category))->delete();
+        return (new TimesheetSubCategoryDeletingService($subcategory))->delete();
     }
 
     public function importTimeSheetSubCategories(Request $request)

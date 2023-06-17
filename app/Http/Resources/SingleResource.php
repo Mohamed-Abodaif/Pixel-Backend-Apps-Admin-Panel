@@ -14,13 +14,12 @@ class SingleResource extends JsonResource
      */
     public function toArray($request)
     {
-        return 
-        [
-            "status"=> "success",
-            "data"=> [
-                "item"=> parent::toArray($request)
-            ]
-        ];
-
+        return
+            [
+                "status" => "success",
+                "data" => [
+                    "item" => parent::toArray($request)
+                ]
+            ];
     }
 }

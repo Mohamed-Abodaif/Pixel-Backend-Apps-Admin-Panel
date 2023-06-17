@@ -2,9 +2,9 @@
 
 namespace App\Services\WorkSector\VendorsModule\VendorServices;
 
-use App\Services\WorkSector\WorkSectorDeletingService;
+use App\Services\CoreServices\CRUDServices\CRUDServiceTypes\DeletingService;
 
-class VendorDeletingService extends WorkSectorDeletingService
+class VendorDeletingService extends DeletingService
 {
 
     protected function getDefinitionDeletingFailingErrorMessage(): string

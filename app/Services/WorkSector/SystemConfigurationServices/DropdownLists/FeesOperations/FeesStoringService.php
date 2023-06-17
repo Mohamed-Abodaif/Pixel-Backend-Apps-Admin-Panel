@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\FeesOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\FeesOperations;
 
 use Exception;
 use App\CustomLibs\ValidatorLib\Validator;
-
+use App\Http\Requests\WorkSector\SystemConfigurations\Fees\StoringFeeRequest;
 use App\Models\WorkSector\SystemConfigurationModels\Fees;
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationStoringService;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\NeedToStoreDateFields;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\MustCreatedMultiplexed;
+use App\Services\WorkSector\Interfaces\NeedToStoreDateFields;
+use App\Services\WorkSector\Interfaces\MustCreatedMultiplexed;
 
 class FeesStoringService extends SystemConfigurationStoringService implements MustCreatedMultiplexed, NeedToStoreDateFields
 {
@@ -30,7 +30,7 @@ class FeesStoringService extends SystemConfigurationStoringService implements Mu
 
     protected function getRequestClass(): string
     {
-        return StoringFeesRequest::class;
+        return StoringFeeRequest::class;
     }
 
     //There Is No Key Will Be Used If IsItMultipleCreation returns false
@@ -42,7 +42,7 @@ class FeesStoringService extends SystemConfigurationStoringService implements Mu
 
     protected function getFillableColumns(): array
     {
-        return ["name", "status"];
+        return ["name", "status","percentage"];
     }
 
     public function getDateFieldNames(): array

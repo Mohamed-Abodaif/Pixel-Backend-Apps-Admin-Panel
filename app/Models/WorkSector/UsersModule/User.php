@@ -16,11 +16,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Models\WorkSector\SystemConfigurationModels\Expense;
 use App\Models\WorkSector\SystemConfigurationModels\Department;
+use App\Models\PersonalSector\PersonalTransactions\Outflow\Expense;
 use App\Notifications\UserNotifications\EmailVerificationNotifications\VerificationEmailNotification;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable implements MustVerifyEmail, HasStorageFolder
+class User extends Authenticatable implements JWTSubject, MustVerifyEmail
 {
 
     use HasApiTokens, HasFactory, Notifiable,  Calculations, SoftDeletes;
@@ -140,5 +141,19 @@ class User extends Authenticatable implements MustVerifyEmail, HasStorageFolder
     public function getVerificationLink(): string
     {
         return urldecode(env("FRONTEND_APP_URL") . '/account-verification?token=' . $this->verification_token);
+    }
+
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+    /**
+     * Return a key value array, containing any custom claims to be added to the JWT.
+     *
+     * @return array
+     */
+    public function getJWTCustomClaims()
+    {
+        return [];
     }
 }

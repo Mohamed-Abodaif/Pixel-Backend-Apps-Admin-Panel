@@ -14,6 +14,9 @@ use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\WorkSector\FinanceModule\PurchaseInvoices\PurchaseInvoice;
 use App\Http\Requests\WorkSector\FinancesModule\PurchaseInvoices\PurchaseInvoiceRequest;
 use App\Http\Resources\WorkSector\FinancesModule\PurchaseInvoices\PurchaseInvoiceResource;
+use App\Services\WorkSector\ClientsModule\PurchaseRequestServices\PurchaseInvoicesDeletingService;
+use App\Services\WorkSector\FinancesModule\PurchaseInvoices\PurchaseInvoicesStoringService;
+use App\Services\WorkSector\FinancesModule\PurchaseInvoices\PurchaseInvoicesUpdatingService;
 
 class PurchaseInvoicesController extends Controller
 {
@@ -63,42 +66,23 @@ class PurchaseInvoicesController extends Controller
         ])->findOrFail($id);
         return new SingleResource($item);
     }
-
-    public function store(PurchaseInvoiceRequest $request)
+    
+    public function store(Request $request)
     {
         $data = $request->all();
         $data['vendor_purchase_invoice_number'] = "PRINV-89384389";
         $data['purchase_invoice_name'] = "PRINVNAME-89384389";
-        PurchaseInvoice::create($data);
-        $response = [
-            "message" => "Created Successfully",
-            "status" => "success"
-        ];
-        return response()->json($response, 200);
+        return (new PurchaseInvoicesStoringService())->create($data);
     }
 
-    public function update($id, PurchaseInvoiceRequest $request)
+    public function update(Request $request, PurchaseInvoice $client)
     {
-        $data = $request->all();
-        $purchaseInvoice = PurchaseInvoice::findOrFail($id);
-        $purchaseInvoice->update($data);
-        $response = [
-            "message" => "Updated Successfully",
-            "status" => "success"
-        ];
-        return response()->json($response, 200);
+        return (new PurchaseInvoicesUpdatingService($client))->update($request);
     }
 
-    public function destroy($id)
+    public function destroy(PurchaseInvoice $client)
     {
-        $purchaseInvoice = PurchaseInvoice::findOrFail($id);
-        $purchaseInvoice->delete();
-
-        $response = [
-            "message" => "Deleted Successfully",
-            "status" => "success"
-        ];
-        return response()->json($response, 200);
+        return (new PurchaseInvoicesDeletingService($client))->delete();
     }
 
     public function importPurchaseInvoices(ImportFile $import)

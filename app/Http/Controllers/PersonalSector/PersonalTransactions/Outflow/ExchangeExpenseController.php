@@ -11,9 +11,11 @@ use App\Http\Controllers\Controller;
 use Spatie\QueryBuilder\QueryBuilder;
 use App\Http\Resources\SingleResource;
 use Rap2hpoutre\FastExcel\SheetCollection;
-use App\Models\WorkSector\SystemConfigurationModels\ExchangeExpense;
-use App\Http\Requests\WorkSector\SystemConfigurationsRequests\ExpenseTypes\ExchangeExpenseRequest;
+use App\Http\Requests\WorkSector\SystemConfigurations\ExpenseTypes\ExchangeExpenseRequest;
 use App\Http\Resources\WorkSector\SystemConfigurationResources\DropdownLists\ExchangeExpenseResource;
+use App\Models\PersonalSector\PersonalTransactions\Outflow\ExchangeExpense;
+use App\Services\PersonalSector\Outflow\ExchangeExpenseService\ExchangeExpenseStoringService;
+use App\Services\PersonalSector\PersonalTransactions\Outflow\ExchangeExpenseService\ExchangeExpenseUpdatingService;
 
 class ExchangeExpenseController extends Controller
 {
@@ -64,15 +66,9 @@ class ExchangeExpenseController extends Controller
     {
         $data = $request->all();
         $data['user_id'] = auth()->user()->id;
-        #TODO
-        //calculate rate
+
         $data['exchange_rate'] = 1;
-        ExchangeExpense::create($data);
-        $response = [
-            "message" => "Created Successfully",
-            "status" => "success"
-        ];
-        return response()->json($response, 200);
+        return (new ExchangeExpenseStoringService)->create($data);
     }
 
     public function update(ExchangeExpenseRequest $request, $id)
@@ -80,13 +76,7 @@ class ExchangeExpenseController extends Controller
         $data = $request->all();
 
         $expens_type = ExchangeExpense::findOrFail($id);
-        $expens_type->update($data);
-
-        $response = [
-            "message" => "Updated Successfully",
-            "status" => "success"
-        ];
-        return response()->json($response, 200);
+        return (new ExchangeExpenseUpdatingService($expens_type))->update($request);
     }
 
     public function destroy($id)

@@ -2,16 +2,13 @@
 
 namespace App\Services\WorkSector\ClientsModule\ClientServices;
 
-use Exception;
-
-use App\CustomLibs\ValidatorLib\Validator;
-use App\Http\Requests\WorkSector\ClientsModule\StoringClientRequest;
 use App\Models\WorkSector\ClientsModule\Client;
-use App\Services\WorkSector\Interfaces\NeedToStoreDateFields;
-use App\Services\WorkSector\Interfaces\MustCreatedMultiplexed;
-use App\Services\WorkSector\WorkSectorStoringService;
+use App\Services\CoreServices\CRUDServices\CRUDServiceTypes\StoringServices\SingleRowStoringService;
+use App\Http\Requests\WorkSector\ClientsModule\StoringClientRequest;
+use App\Services\WorkSector\CustomisationHooksMethods;
+use Illuminate\Http\UploadedFile;
 
-class ClientStoringService extends WorkSectorStoringService implements MustCreatedMultiplexed, NeedToStoreDateFields
+class ClientStoringService extends SingleRowStoringService
 {
 
     protected function getDefinitionCreatingFailingErrorMessage(): string
@@ -24,6 +21,7 @@ class ClientStoringService extends WorkSectorStoringService implements MustCreat
         return "The Client Has Been Created Successfully !";
     }
 
+
     protected function getDefinitionModelClass(): string
     {
         return Client::class;
@@ -32,47 +30,5 @@ class ClientStoringService extends WorkSectorStoringService implements MustCreat
     protected function getRequestClass(): string
     {
         return StoringClientRequest::class;
-    }
-
-    //There Is No Key Will Be Used If IsItMultipleCreation returns false
-    //Because Model itself will determine the fillable values from request main data array
-    public function getRequestDataKey(): string
-    {
-        return "items";
-    }
-
-    protected function getFillableColumns(): array
-    {
-        return [
-            'name',
-            'billing_address',
-            'type',
-            'registration_no',
-            'registration_no_attachment',
-            'taxes_no',
-            'taxes_no_attachment',
-            'exemption_attachment',
-            'sales_taxes_attachment',
-            'logo',
-            'notes'
-        ];
-    }
-
-    public function getDateFieldNames(): array
-    {
-        return ["created_at", "updated_at"];
-    }
-    public function setRequestGeneralValidationRules(): Validator
-    {
-        return $this->validator->ExceptRules(["name"]);
-    }
-
-    /**
-     * @return Validator
-     * @throws Exception
-     */
-    public function setSingleRowValidationRules(): Validator
-    {
-        return $this->validator->OnlyRules(["name"]);
     }
 }

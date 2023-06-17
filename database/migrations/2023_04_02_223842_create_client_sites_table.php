@@ -13,15 +13,15 @@ class CreateClientSitesTable extends Migration
      */
     public function up()
     {
-        Schema::create('client_sites', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('client_id')->nullable();
-            $table->foreign('client_id')->references('id')->on('clients')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('name');
-            $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->nullable()->useCurrentOnUpdate();
-            $table->softDeletes();
-        });
+//        Schema::create('client_sites', function (Blueprint $table) {
+//            $table->id();
+//            $table->unsignedBigInteger('client_id')->nullable();
+//            $table->foreign('client_id')->references('id')->on('clients')->onUpdate('cascade')->onDelete('cascade');
+//            $table->string('name');
+//            $table->timestamp('created_at')->useCurrent();
+//            $table->timestamp('updated_at')->nullable()->useCurrentOnUpdate();
+//            $table->softDeletes();
+//        });
     }
 
     /**

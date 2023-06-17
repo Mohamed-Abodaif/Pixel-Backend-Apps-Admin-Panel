@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\FeessOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\FeesOperations;
 
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationDeletingService;
 

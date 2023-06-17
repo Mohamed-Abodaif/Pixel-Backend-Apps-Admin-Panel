@@ -4,9 +4,9 @@ namespace App\Services\WorkSector\ClientsModule\PurchaseRequestServices;
 
 
 use App\Http\Requests\WorkSector\ClientsModule\UpdatingPurchaseRequestRequest;
-use App\Services\WorkSector\WorkSectorUpdatingService;
+use App\Services\CoreServices\CRUDServices\CRUDServiceTypes\UpdatingServices\UpdatingService;
 
-class PurchaseRequestUpdatingService extends WorkSectorUpdatingService
+class PurchaseRequestUpdatingService extends UpdatingService
 {
 
     protected function getDefinitionUpdatingFailingErrorMessage(): string

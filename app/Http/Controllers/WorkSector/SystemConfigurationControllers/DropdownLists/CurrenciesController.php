@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Response;
 use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\WorkSector\SystemConfigurationModels\Currency;
 use App\Http\Resources\WorkSector\SystemConfigurationResources\DropdownLists\CurrenciesResource;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\CurrenciesOperations\CurrencyUpdatingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\CurrenciesOperations\CurrencyUpdatingService;
 
 class CurrenciesController extends Controller
 {

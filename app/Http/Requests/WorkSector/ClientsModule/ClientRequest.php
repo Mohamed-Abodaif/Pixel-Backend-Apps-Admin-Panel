@@ -92,7 +92,7 @@ class ClientRequest extends BaseFormRequest
         return [
             'name' => 'max:150|unique:clients',
             'billing_address' => "max:255",
-            'type' => [Rule::in(['free-zone', 'local', 'international', 'not-specified'])],
+            'type' => [Rule::in(['free-zone', 'local', 'international'])],
             "taxes_no" => "unique:clients",
             "registration_no" => "unique:clients",
         ];

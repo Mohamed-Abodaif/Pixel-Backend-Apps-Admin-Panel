@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\TimesheetCategoriesOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\TimesheetCategoriesOperations;
 
 
 
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationUpdatingService;
-use App\Http\Requests\WorkSector\SystemConfigurationsRequests\TimesheetCategories\UpdatingTimesheetCategoryRequest;
+use App\Http\Requests\WorkSector\SystemConfigurations\TimesheetCategories\UpdatingTimesheetCategoryRequest;
 
 class TimesheetCategoryUpdatingService extends SystemConfigurationUpdatingService
 {

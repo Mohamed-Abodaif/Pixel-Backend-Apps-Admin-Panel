@@ -4,9 +4,9 @@ namespace App\Services\PersonalSector\PersonalTransactions\OutFlow\ExpenseesServ
 
 
 use App\Http\Requests\PersonalSector\PersonalTransactions\OutFlow\UpdatingExpenseRequest;
-use App\Services\WorkSector\WorkSectorUpdatingService;
+use App\Services\CoreServices\CRUDServices\CRUDServiceTypes\UpdatingServices\UpdatingService;
 
-class ExpenseUpdatingService extends WorkSectorUpdatingService
+class ExpenseUpdatingService extends UpdatingService
 {
 
     protected function getDefinitionUpdatingFailingErrorMessage(): string

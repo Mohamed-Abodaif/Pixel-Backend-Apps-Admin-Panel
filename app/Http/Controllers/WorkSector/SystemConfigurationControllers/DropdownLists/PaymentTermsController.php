@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Response;
 use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\WorkSector\SystemConfigurationModels\PaymentTerm;
 use App\Http\Resources\WorkSector\SystemConfigurationResources\DropdownLists\PaymentTermsResource;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\PaymentTermsOperations\PaymentTermStoringService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\PaymentTermsOperations\PaymentTermDeletingService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\PaymentTermsOperations\PaymentTermUpdatingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\PaymentTermsOperations\PaymentTermStoringService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\PaymentTermsOperations\PaymentTermDeletingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\PaymentTermsOperations\PaymentTermUpdatingService;
 
 class PaymentTermsController extends Controller
 {

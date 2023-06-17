@@ -9,6 +9,7 @@ use App\Models\SystemConfigurationModels\Currency;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\SystemConfigurationModels\CustodySender;
+use App\Services\CoreServices\CRUDServices\Interfaces\OwnsRelationships;
 
 class Bonus extends BaseModel
 {
@@ -26,7 +27,6 @@ class Bonus extends BaseModel
     ];
 
     protected $dates = array('created_at', 'updated_at');
-
 
     public function custodySender(): BelongsTo
     {

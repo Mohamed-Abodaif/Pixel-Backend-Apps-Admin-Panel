@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\TimesheetCategoriesOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\TimesheetCategoriesOperations;
 
 use Exception;
 use App\CustomLibs\ValidatorLib\Validator;
+use App\Http\Requests\WorkSector\SystemConfigurations\TimesheetCategories\StoringTimesheetCategoryRequest;
+use App\Services\WorkSector\Interfaces\NeedToStoreDateFields;
+use App\Services\WorkSector\Interfaces\MustCreatedMultiplexed;
 use App\Models\WorkSector\SystemConfigurationModels\TimeSheetCategory;
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationStoringService;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\NeedToStoreDateFields;
-use App\Http\Requests\SystemConfigurationsRequests\TimesheetCategories\StoringTimesheetCategoryRequest;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\MustCreatedMultiplexed;
 
 class TimesheetCategoryStoringService extends SystemConfigurationStoringService implements MustCreatedMultiplexed, NeedToStoreDateFields
 {

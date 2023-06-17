@@ -27,6 +27,7 @@ class StoringClientOrderRequest extends BaseFormRequest
     {
         return
             [
+                'order_name' => 'required|max:255',
                 'date' => 'required|date',
                 'delivery_date' => 'required|date',
                 'client_id' => 'required|exists:clients,id',
@@ -36,10 +37,11 @@ class StoringClientOrderRequest extends BaseFormRequest
                 'currency_id' => 'required|exists:currencies,id',
                 'po_total_value' => 'required|numeric',
                 'po_sales_taxes_value' => 'required|numeric',
+                'po_net_value' => 'required|numeric',
                 'po_add_and_discount_taxes_value' => 'required|numeric',
-                'order_name' => 'required|max:255',
+                'po_attachments' => 'nullable|string',
                 'notes' => 'nullable',
-        ];
+            ];
     }
 
     public function messages()
@@ -50,6 +52,5 @@ class StoringClientOrderRequest extends BaseFormRequest
             "order_name" => "Client Order's Name Has Not Been Sent !",
             "order_number.unique" => "Order Number Is Already Stored In Our Database !"
         ];
-        
     }
 }

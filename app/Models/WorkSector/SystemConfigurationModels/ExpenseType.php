@@ -9,14 +9,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ExpenseType extends BaseModel
 {
-   use SoftDeletes,HasFactory;
-   protected $table = "expense_types";
-    protected $fillable = ['name','category' , "status"];
+    use SoftDeletes, HasFactory;
+    protected $table = "expense_types";
+    protected $fillable = ['name', 'category', "status"];
     const ROUTE_PARAMETER_NAME = "type";
-    const CATEGORY_TYPES = ['assets','company_operation','client_po','marketing','client_visits_preorders','purchase_for_inventory','taxes','insurances','exchange_currency'];
+    const CATEGORY_TYPES = ['assets', 'company_operation', 'client_po', 'marketing', 'client_visits_preorders', 'purchase_for_inventory', 'taxes', 'insurances', 'exchange_currency'];
 
     protected $casts = [
-        'status'=>'boolean',
+        'status' => 'boolean',
     ];
 
     public function scopeActive($query)
@@ -24,9 +24,8 @@ class ExpenseType extends BaseModel
         $query->where('status', 1);
     }
 
-    public function category() : BelongsTo
+    public function category(): BelongsTo
     {
         return $this->belongsTo(AssetsCategory::class, 'category');
     }
-
 }

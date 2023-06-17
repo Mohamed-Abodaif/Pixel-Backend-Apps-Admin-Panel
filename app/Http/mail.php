@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use ErrorException;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
+use App\Models\WorkSector\UsersModule\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;

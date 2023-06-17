@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\CompanyTreasurysOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\CompanyTreasuriesOperations;
 
-
+use App\Http\Requests\WorkSector\SystemConfigurations\CompanyTreasury\UpdatingCompanyTreasuryRequest;
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationUpdatingService;
-use App\Http\Requests\SystemConfigurationsRequests\CompanyTreasurys\UpdatingCompanyTreasuryRequest;
 
 class CompanyTreasuryUpdatingService extends SystemConfigurationUpdatingService
 {

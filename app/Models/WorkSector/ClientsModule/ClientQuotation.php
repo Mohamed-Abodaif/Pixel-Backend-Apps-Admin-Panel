@@ -2,17 +2,18 @@
 
 namespace App\Models\WorkSector\ClientsModule;
 
-
 use App\Models\BaseModel;
 use App\Traits\Calculations;
+use App\Interfaces\HasStorageFolder;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Models\SystemConfigurationModels\Currency;
-use App\Models\SystemConfigurationModels\Department;
-use App\Models\SystemConfigurationModels\PaymentTerm;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\WorkSector\SystemConfigurationModels\Currency;
+use App\Models\WorkSector\SystemConfigurationModels\Department;
+use App\Models\WorkSector\SystemConfigurationModels\PaymentTerm;
+use App\Models\WorkSector\ClientsModule\Client;
 
-class ClientQuotation extends BaseModel
+class ClientQuotation extends BaseModel implements HasStorageFolder
 {
     use HasFactory, Calculations, SoftDeletes;
 
@@ -56,5 +57,14 @@ class ClientQuotation extends BaseModel
     public function client(): BelongsTo
     {
         return $this->belongsTo(Client::class)->select('id', 'name');
+    }
+
+    public function getDocumentsStorageFolderName(): string
+    {
+        return "ClientQuotatuinsFiles/" . $this->name;
+    }
+    public function getNamingPropertyName(): string
+    {
+        return "";
     }
 }

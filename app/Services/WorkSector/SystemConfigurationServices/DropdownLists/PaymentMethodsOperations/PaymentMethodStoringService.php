@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\PaymentMethodsOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\PaymentMethodsOperations;
 
 use Exception;
 use App\CustomLibs\ValidatorLib\Validator;
 use App\Models\WorkSector\SystemConfigurationModels\PaymentMethod;
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationStoringService;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\NeedToStoreDateFields;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\MustCreatedMultiplexed;
-use App\Http\Requests\WorkSector\SystemConfigurationsRequests\PaymentMethods\StoringPaymentMethodRequest;
+use App\Services\WorkSector\Interfaces\NeedToStoreDateFields;
+use App\Services\WorkSector\Interfaces\MustCreatedMultiplexed;
+use App\Http\Requests\WorkSector\SystemConfigurations\PaymentMethods\StoringPaymentMethodRequest;
 
 class PaymentMethodStoringService extends SystemConfigurationStoringService implements MustCreatedMultiplexed, NeedToStoreDateFields
 {

@@ -4,9 +4,9 @@ namespace App\Services\WorkSector\VendorsModule\VendorServices;
 
 
 use App\Http\Requests\WorkSector\VendorsModule\UpdatingVendorRequest;
-use App\Services\WorkSector\WorkSectorUpdatingService;
+use App\Services\CoreServices\CRUDServices\CRUDServiceTypes\UpdatingServices\UpdatingService;
 
-class VendorUpdatingService extends WorkSectorUpdatingService
+class VendorUpdatingService extends UpdatingService
 {
 
     protected function getDefinitionUpdatingFailingErrorMessage(): string

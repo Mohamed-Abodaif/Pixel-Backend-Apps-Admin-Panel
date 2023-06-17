@@ -3,7 +3,7 @@
 namespace App\Http\Requests\WorkSector\VendorsModule;
 
 use App\Http\Requests\BaseFormRequest;
-use App\Http\Requests\WorkSector\SystemConfigurationsRequests\StoringRequest;
+use App\Http\Requests\WorkSector\SystemConfigurations\StoringRequest;
 
 
 class StoringVendorRequest extends BaseFormRequest

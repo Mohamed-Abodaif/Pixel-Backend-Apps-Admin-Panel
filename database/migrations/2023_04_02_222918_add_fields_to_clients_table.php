@@ -15,9 +15,9 @@ class AddFieldsToClientsTable extends Migration
     {
         Schema::table('clients', function (Blueprint $table) {
             //
-            $table->unsignedBigInteger('country_id')->nullable()->after('registration_no');
-            $table->foreign('country_id')->references('id')->on('countries')->onUpdate('cascade')->onDelete('cascade');
-            $table->integer('sites_num')->nullable()->after('registration_no');
+//            $table->unsignedBigInteger('country_id')->nullable()->after('registration_no');
+//            $table->foreign('country_id')->references('id')->on('countries')->onUpdate('cascade')->onDelete('cascade');
+//            $table->integer('sites_num')->nullable()->after('registration_no');
         });
     }
 

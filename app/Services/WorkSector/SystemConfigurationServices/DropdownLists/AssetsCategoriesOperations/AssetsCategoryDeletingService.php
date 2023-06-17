@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\AssetsCategoriesOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\AssetsCategoriesOperations;
 
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationDeletingService;
 

@@ -12,6 +12,9 @@ use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\WorkSector\FinanceModule\TaxesAndInsurances\InsuranceExpense;
 use App\Http\Requests\WorkSector\FinancesModule\TaxesAndInsurances\InsuranceExpenseRequest;
 use App\Http\Resources\WorkSector\FinancesModule\TaxesAndInsurances\InsuranceExpenseResource;
+use App\Services\WorkSector\ClientsModule\PurchaseRequestServices\InsuranceExpenseDeletingService;
+use App\Services\WorkSector\FinancesModule\TaxesAndInsurances\InsuranceExpense\InsuranceExpenseStoringService;
+use App\Services\WorkSector\FinancesModule\TaxesAndInsurances\InsuranceExpense\InsuranceExpenseUpdatingService;
 
 class InsuranceExpenseController extends Controller
 {
@@ -68,42 +71,21 @@ class InsuranceExpenseController extends Controller
         return InsuranceExpenseResource::collection($data);
     }
 
-    public function store(InsuranceExpenseRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->all();
-        $data['user_id'] = auth()->user()->id;
-        InsuranceExpense::create($data);
-        $response = [
-            "message" => "Created Successfully",
-            "status" => "success"
-        ];
-        return response()->json($response, 200);
+        $request['user_id'] = auth()->user()->id;
+
+        return (new InsuranceExpenseStoringService())->create($request);
     }
 
-    public function update(InsuranceExpenseRequest $request, $id)
+    public function update(Request $request, InsuranceExpense $insuranceExpense)
     {
-        $data = $request->all();
-
-        $expens_type = InsuranceExpense::findOrFail($id);
-        $expens_type->update($data);
-
-        $response = [
-            "message" => "Updated Successfully",
-            "status" => "success"
-        ];
-        return response()->json($response, 200);
+        return (new InsuranceExpenseUpdatingService($insuranceExpense))->update($request);
     }
 
-    public function destroy($id)
+    public function destroy(InsuranceExpense $insuranceExpense)
     {
-        $expens_type = InsuranceExpense::findOrFail($id);
-        $expens_type->delete();
-
-        $response = [
-            "message" => "Deleted Successfully",
-            "status" => "success"
-        ];
-        return response()->json($response, 200);
+        return (new InsuranceExpenseDeletingService($insuranceExpense))->delete();
     }
 
     public function show($id)

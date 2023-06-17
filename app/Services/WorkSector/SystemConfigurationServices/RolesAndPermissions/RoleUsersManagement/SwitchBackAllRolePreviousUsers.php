@@ -3,7 +3,7 @@
 namespace App\Services\WorkSector\SystemConfigurationServices\RolesAndPermissions\RoleUsersManagement;
 
 use App\Jobs\RoleJobs\SwitchBackAllRolePreviousUsersJob;
-use App\Models\User;
+use App\Models\WorkSector\UsersModule\User;
 use Exception;
 
 class SwitchBackAllRolePreviousUsers extends RoleUsersManager

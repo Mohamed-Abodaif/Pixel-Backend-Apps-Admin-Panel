@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\DepartmentsOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\DepartmentsOperations;
 
 use Exception;
 use App\CustomLibs\ValidatorLib\Validator;
-use App\Http\Requests\SystemConfigurationsRequests\Departments\StoringDepartmentRequest;
+use App\Http\Requests\WorkSector\SystemConfigurations\Departments\StoringDepartmentRequest;
+use App\Models\WorkSector\SystemConfigurationModels\Department;
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationStoringService;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\NeedToStoreDateFields;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\MustCreatedMultiplexed;
+use App\Services\WorkSector\Interfaces\NeedToStoreDateFields;
+use App\Services\WorkSector\Interfaces\MustCreatedMultiplexed;
 
 class DepartmentStoringService extends SystemConfigurationStoringService implements MustCreatedMultiplexed, NeedToStoreDateFields
 {
@@ -41,7 +42,7 @@ class DepartmentStoringService extends SystemConfigurationStoringService impleme
 
     protected function getFillableColumns(): array
     {
-        return ["name", "status"];
+        return ["name", "department_type","parent_id","status"];
     }
 
     public function getDateFieldNames(): array

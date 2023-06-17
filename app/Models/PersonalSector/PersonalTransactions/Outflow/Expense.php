@@ -4,13 +4,20 @@ namespace App\Models\PersonalSector\PersonalTransactions\Outflow;
 
 use Carbon\Carbon;
 use App\Models\BaseModel;
+use App\Models\EditRequest;
 use App\Traits\Calculations;
-use App\Models\SystemConfig\Currency;
-use App\Models\SystemConfig\ExpenseType;
-use App\Models\SystemConfig\PaymentMethod;
+use App\Models\WorkSector\UsersModule\User;
+use App\Models\WorkSector\ClientsModule\Client;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\WorkSector\ClientsModule\ClientOrder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\WorkSector\FinanceModule\AssetsList\Asset;
+use App\Models\WorkSector\SystemConfigurationModels\Currency;
+use App\Models\WorkSector\SystemConfigurationModels\ExpenseType;
+use App\Models\WorkSector\SystemConfigurationModels\PaymentMethod;
+use App\Models\WorkSector\FinanceModule\PurchaseInvoices\PurchaseInvoice;
+use App\Models\PersonalSector\PersonalTransactions\Outflow\ExpenseDiscussion;
 
 class Expense extends BaseModel
 {

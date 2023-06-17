@@ -2,6 +2,8 @@
 
 namespace App\Services\WorkSector;
 
+use App\Exceptions\JsonException;
+use App\Models\WorkSector\UsersModule\User;
 use App\Services\WorkSector\ValidationOperationsTrait;
 use App\Services\WorkSector\CustomisationHooksMethods;
 use Exception;
@@ -12,11 +14,12 @@ use Illuminate\Support\Facades\Response;
 use App\Services\WorkSector\Interfaces\NeedToStoreDateFields;
 use App\Services\WorkSector\Interfaces\MustCreatedMultiplexed;
 
-abstract class WorkSectorStoringService 
+abstract class WorkSectorStoringService
 {
-    use ValidationOperationsTrait, CustomisationHooksMethods;
+    use ValidationOperationsTrait, CustomisationHooksMethods , DataArrayProcessorMethods;
 
     protected string $definitionModelClass;
+    protected array $fillableColumns = [];
     protected array $definitionsIDS = [];
 
 
@@ -27,7 +30,6 @@ abstract class WorkSectorStoringService
 
     //Model And Operation Method
     abstract protected function getDefinitionModelClass(): string;
-    abstract protected function getFillableColumns(): array;
 
     //Responding Methods
     abstract protected function getDefinitionCreatingFailingErrorMessage(): string;
@@ -36,13 +38,10 @@ abstract class WorkSectorStoringService
     //Validation Methods
     abstract protected function getRequestClass(): string;
 
-
-    /**
-     * @throws Exception
-     */
-    public function __construct()
+    protected function setFillableColumns(): self
     {
-        $this->setDefinitionModelClass();
+        $this->fillableColumns = app($this->definitionModelClass)->getFillable();
+        return $this;
     }
 
     /**
@@ -57,6 +56,14 @@ abstract class WorkSectorStoringService
         }
         $this->definitionModelClass = $definitionModelClass;
         return $this;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function __construct()
+    {
+        $this->setDefinitionModelClass()->setFillableColumns();
     }
 
     /**
@@ -101,10 +108,10 @@ abstract class WorkSectorStoringService
 
     protected function getCreationDataArray(): array | null
     {
-        if ($this->IsItMultipleCreation()) {
-            /** @var MustCreatedMultiplexed $this */
-            return $this->data[$this->getRequestDataKey()] ?? null;
-        }
+        // if ($this->IsItMultipleCreation()) {
+        //     /** @var MustCreatedMultiplexed $this */
+        //     return $this->data[$this->getRequestDataKey()] ?? null;
+        // }
         return [$this->data];
     }
 
@@ -116,10 +123,10 @@ abstract class WorkSectorStoringService
     {
         $data = $this->getCreationDataArray();
         if ($data === null) {
-            throw new Exception($this->getDefinitionCreatingFailingErrorMessage());
+            throw new JsonException($this->getDefinitionCreatingFailingErrorMessage());
         }
         $dateFields = $this instanceof NeedToStoreDateFields ? $this->getDateFieldNames() : [];
-        return $this->getFillablesValues($data, $dateFields);
+        return $this->sanitizeFillablesValues($data, $dateFields);
     }
 
     /**

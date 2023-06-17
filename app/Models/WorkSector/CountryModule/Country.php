@@ -11,12 +11,11 @@ use App\Traits\HasTranslations;
 class Country extends Model
 {
 
-    use SoftDeletes, HasTranslations, HasFactory;
+    use SoftDeletes, HasFactory;
 
-    public $translatable = ['name'];
 
     protected $fillable = [
-        'name'
+        'name','code'
     ];
 
     protected $hidden = [

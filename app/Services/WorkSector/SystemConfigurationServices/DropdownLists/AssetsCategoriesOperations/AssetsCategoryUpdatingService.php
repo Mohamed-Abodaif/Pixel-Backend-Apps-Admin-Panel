@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\AssetsCategoriesOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\AssetsCategoriesOperations;
 
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationUpdatingService;
-use App\Http\Requests\WorkSector\SystemConfigurationsRequests\AssetsCategories\UpdatingAssetCategoryRequest;
+use App\Http\Requests\WorkSector\SystemConfigurations\AssetsCategories\UpdatingAssetCategoryRequest;
 
 class AssetsCategoryUpdatingService extends SystemConfigurationUpdatingService
 {

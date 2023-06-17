@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Response;
 use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\WorkSector\SystemConfigurationModels\ExpenseType;
 use App\Http\Resources\WorkSector\SystemConfigurationResources\DropdownLists\ExpenseTypesResource;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\ExpenseTypesOperations\ExpenseTypeStoringService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\ExpenseTypesOperations\ExpenseTypeDeletingService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\ExpenseTypesOperations\ExpenseTypeUpdatingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\ExpenseTypesOperations\ExpenseTypeStoringService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\ExpenseTypesOperations\ExpenseTypeDeletingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\ExpenseTypesOperations\ExpenseTypeUpdatingService;
 
 class ExpenseTypesController extends Controller
 {

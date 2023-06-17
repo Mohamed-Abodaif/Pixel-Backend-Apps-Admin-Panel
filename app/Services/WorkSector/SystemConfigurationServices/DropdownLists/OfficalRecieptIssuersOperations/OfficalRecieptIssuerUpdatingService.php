@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\OfficalRecieptIssuersOperations;
-
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\OfficalRecieptIssuersOperations;
 
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationUpdatingService;
-use App\Http\Requests\SystemConfigurationsRequests\OfficalRecieptIssuers\UpdatingOfficalRecieptIssuerRequest;
+use App\Http\Requests\WorkSector\SystemConfigurations\OfficalRecieptIssuer\UpdatingOfficalRecieptIssuerRequest;
 
 class OfficalRecieptIssuerUpdatingService extends SystemConfigurationUpdatingService
 {

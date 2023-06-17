@@ -15,6 +15,7 @@ use App\Http\Resources\PersonalSector\PersonalTransactions\Inflow\BonusesResourc
 use App\Services\PersonalSector\PersonalTransactions\Inflow\BonusesServices\BonusDeletingService;
 use App\Services\PersonalSector\PersonalTransactions\Inflow\BonusesServices\BonusStoringService;
 use App\Services\PersonalSector\PersonalTransactions\Inflow\BonusesServices\BonusUpdatingService;
+use Illuminate\Http\JsonResponse;
 
 class BonusesController extends Controller
 {

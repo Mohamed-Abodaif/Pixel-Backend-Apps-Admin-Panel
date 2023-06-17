@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\AreasOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\AreasOperations;
 
-
-use App\Http\Requests\SystemConfigurationsRequests\Areas\UpdatingAreaRequest;
+use App\Http\Requests\WorkSector\SystemConfigurations\Areas\UpdatingAreaRequest;
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationUpdatingService;
 
 class AreaUpdatingService extends SystemConfigurationUpdatingService

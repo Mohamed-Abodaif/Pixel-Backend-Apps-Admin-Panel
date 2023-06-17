@@ -4,9 +4,9 @@ namespace App\Services\PersonalSector\PersonalTransactions\Inflow\BonusesService
 
 
 use App\Http\Requests\PersonalSector\PersonalTransactions\Inflow\UpdatingBonusRequest;
-use App\Services\WorkSector\WorkSectorUpdatingService;
+use App\Services\CoreServices\CRUDServices\CRUDServiceTypes\UpdatingServices\UpdatingService;
 
-class BonusUpdatingService extends WorkSectorUpdatingService
+class BonusUpdatingService extends UpdatingService
 {
 
     protected function getDefinitionUpdatingFailingErrorMessage(): string

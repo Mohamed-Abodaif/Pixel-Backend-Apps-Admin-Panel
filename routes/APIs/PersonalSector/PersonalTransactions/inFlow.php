@@ -11,7 +11,6 @@ Route::middleware(['auth:api'])->group(function () {
     Route::put('custodies/status/{id}', [CustodiesController::class, 'changeStatus']);
 });
 
-
 Route::middleware(['auth:api'])->group(function () {
     Route::post('bonuses/import', [BonusesController::class, 'importBonuses']);
     Route::get('bonuses/export', [BonusesController::class, 'exportBonuses']);

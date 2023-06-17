@@ -2,9 +2,9 @@
 
 namespace App\Services\PersonalSector\PersonalTransactions\OutFlow\ExpenseesServices;
 
-use App\Services\WorkSector\WorkSectorDeletingService;
+use App\Services\CoreServices\CRUDServices\CRUDServiceTypes\DeletingService;
 
-class ExpenseDeletingService extends WorkSectorDeletingService
+class ExpenseDeletingService extends DeletingService
 {
 
     protected function getDefinitionDeletingFailingErrorMessage(): string

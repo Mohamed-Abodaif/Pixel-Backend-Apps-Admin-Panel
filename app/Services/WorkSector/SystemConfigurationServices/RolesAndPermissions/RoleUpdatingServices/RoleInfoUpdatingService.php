@@ -24,7 +24,8 @@ class RoleInfoUpdatingService extends UpdatingBaseClass
 
     protected function PermissionIDSGetter() : array
     {
-        return Permission::whereIn("name" , $this->data["permissions"])->pluck("id")->toArray();
+        //return Permission::whereIn("name" , $this->data["permissions"])->pluck("id")->toArray();
+        return $this->data["permissions"];
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\TimesheetCategoriesOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\TimesheetCategoriesOperations;
 
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationDeletingService;
 

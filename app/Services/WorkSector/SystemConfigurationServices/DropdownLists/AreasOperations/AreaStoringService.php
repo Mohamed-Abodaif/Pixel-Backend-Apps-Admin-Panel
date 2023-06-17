@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\AreasOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\AreasOperations;
 
 use Exception;
 
 use App\CustomLibs\ValidatorLib\Validator;
+use App\Http\Requests\WorkSector\SystemConfigurations\Areas\StoringAreaRequest;
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationStoringService;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\NeedToStoreDateFields;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\MustCreatedMultiplexed;
+use App\Services\WorkSector\Interfaces\NeedToStoreDateFields;
+use App\Services\WorkSector\Interfaces\MustCreatedMultiplexed;
 
 class AreaStoringService extends SystemConfigurationStoringService implements MustCreatedMultiplexed, NeedToStoreDateFields
 {

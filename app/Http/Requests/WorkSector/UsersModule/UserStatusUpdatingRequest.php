@@ -3,7 +3,7 @@
 namespace App\Http\Requests\WorkSector\UsersModule;
 
 use App\Http\Requests\BaseFormRequest;
-use App\Models\User;
+use App\Models\WorkSector\UsersModule\User;
 use Illuminate\Validation\Rule;
 
 class UserStatusUpdatingRequest extends BaseFormRequest

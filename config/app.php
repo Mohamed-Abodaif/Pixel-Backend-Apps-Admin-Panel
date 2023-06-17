@@ -181,7 +181,9 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         App\Providers\MacroServiceProvider::class,
         App\Providers\HelperServiceProvider::class,
-
+        OwenIt\Auditing\AuditingServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+        App\Providers\TenancyServiceProvider::class,
     ],
 
     /*
@@ -237,7 +239,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'FastExcel' => Rap2hpoutre\FastExcel\Facades\FastExcel::class,
-
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
     ],
 
 ];

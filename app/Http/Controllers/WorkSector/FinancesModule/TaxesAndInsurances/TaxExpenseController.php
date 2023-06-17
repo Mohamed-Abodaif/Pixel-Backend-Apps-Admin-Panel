@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\WorkSector\FinancesModule\TaxesAndInsurances;
+namespace App\Services\WorkSector\FinancesModule\TaxesAndInsurances\TaxExpenseService;
 
 use ExportBuilder;
 use Illuminate\Http\Request;
@@ -10,8 +10,8 @@ use Spatie\QueryBuilder\QueryBuilder;
 use App\Http\Resources\SingleResource;
 use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\WorkSector\FinanceModule\TaxesAndInsurances\TaxExpense;
-use App\Http\Requests\WorkSector\FinancesModule\TaxesAndInsurances\TaxExpenseRequest;
-
+use App\Services\WorkSector\FinancesModule\TaxesAndInsurances\TaxExpense\TaxExpenseStoringService;
+use App\Services\WorkSector\FinancesModule\TaxesAndInsurances\TaxExpenseService\TaxExpenseUpdatingService;
 class TaxExpenseController extends Controller
 {
 
@@ -50,30 +50,16 @@ class TaxExpenseController extends Controller
         return new SingleResource($item);
     }
 
-    public function store(TaxExpenseRequest $request)
+    public function store(Request $request)
     {
         $data = $request->all();
         $data['user_id'] = auth()->user()->id;
-        TaxExpense::create($data);
-
-        $response = [
-            "message" => "Created Successfully",
-            "status" => "success"
-        ];
-        return response()->json($response, 200);
+        return (new TaxExpenseStoringService())->create($data);
     }
-    public function update(TaxExpenseRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $data = $request->all();
-
         $TaxExpense = TaxExpense::findOrFail($id);
-        $TaxExpense->update($data);
-
-        $response = [
-            "message" => "Updated Successfully",
-            "status" => "success"
-        ];
-        return response()->json($response, 200);
+        return (new TaxExpenseUpdatingService($TaxExpense))->update($request);
     }
 
     public function destroy($id)

@@ -13,10 +13,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\WorkSector\SystemConfigurationModels\CompanySector;
 use App\Notifications\UserNotifications\EmailVerificationNotifications\VerificationEmailNotification;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class Company extends Authenticatable
+class Company extends Authenticatable implements Auditable
 {
-    use HasFactory, SoftDeletes, HasApiTokens, Notifiable;
+    use HasFactory, SoftDeletes, HasApiTokens, Notifiable, \OwenIt\Auditing\Auditable;
 
     protected $table = "companies";
 
@@ -62,5 +63,4 @@ class Company extends Authenticatable
     {
         return $this->belongsTo(Country::class)->select('id', 'code', 'name');
     }
-   
 }

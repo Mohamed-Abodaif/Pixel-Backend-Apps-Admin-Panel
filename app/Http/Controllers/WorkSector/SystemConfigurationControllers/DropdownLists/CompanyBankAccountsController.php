@@ -10,16 +10,16 @@ use Spatie\QueryBuilder\QueryBuilder;
 use App\Http\Resources\SingleResource;
 use Illuminate\Support\Facades\Response;
 use Rap2hpoutre\FastExcel\SheetCollection;
-use App\Models\WorkSector\SystemConfigurationModels\ComapnyBankAccount;
-use App\Http\Resources\WorkSector\SystemConfigurationResources\DropdownLists\ComapnyBankAccountResource;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\ComapnyBankAccountsOperations\ComapnyBankAccountStoringService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\ComapnyBankAccountsOperations\ComapnyBankAccountDeletingService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\ComapnyBankAccountsOperations\ComapnyBankAccountUpdatingService;
+use App\Models\WorkSector\SystemConfigurationModels\CompanyBankAccount;
+use App\Http\Resources\WorkSector\SystemConfigurationResources\DropdownLists\CompanyBankAccountResource;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\CompanyBanckAccountsOperations\CompanyBankAccountDeletingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\CompanyBanckAccountsOperations\CompanyBankAccountStoringService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\CompanyBanckAccountsOperations\CompanyBankAccountUpdatingService;
 
 class CompanyBankAccountsController extends Controller
 {
     protected $filterable = [
-        'name',
+        'account_name',
         'status'
     ];
 
@@ -30,14 +30,14 @@ class CompanyBankAccountsController extends Controller
         // $this->middleware('permission:read_sc-dropdown-lists')->only(['show']);
         // $this->middleware('permission:edit_sc-dropdown-liste')->only(['update']);
         // $this->middleware('permission:delete_sc-dropdown-lists')->only(['destroy']);
-        // $this->middleware('permission:import_sc-dropdown-lists')->only(['importComapnyBankAccounts']);
-        // $this->middleware('permission:export_sc-dropdown-lists')->only(['exportComapnyBankAccounts']);
+        // $this->middleware('permission:import_sc-dropdown-lists')->only(['importCompanyBankAccounts']);
+        // $this->middleware('permission:export_sc-dropdown-lists')->only(['exportCompanyBankAccounts']);
 
     }
 
     public function index(Request $request)
     {
-        $data = QueryBuilder::for(ComapnyBankAccount::class)
+        $data = QueryBuilder::for(CompanyBankAccount::class)
             ->allowedFilters($this->filterable)
             ->datesFiltering()->customOrdering()
             ->paginate($request->pageSize ?? 10);
@@ -45,19 +45,19 @@ class CompanyBankAccountsController extends Controller
         return Response::success(['list' => $data]);
     }
 
-    public function show(ComapnyBankAccount $department)
+    public function show(CompanyBankAccount $companyBankAccount)
     {
-        return new SingleResource($department);
+        return new SingleResource($companyBankAccount);
     }
 
     function list()
     {
-        $data = QueryBuilder::for(ComapnyBankAccount::class)
+        $data = QueryBuilder::for(CompanyBankAccount::class)
             ->allowedFilters(['name'])
             ->active()
             ->customOrdering('created_at', 'desc')
-            ->get(['id', 'name']);
-        return ComapnyBankAccountResource::collection($data);
+            ->get(['id', 'account_name']);
+        return CompanyBankAccountResource::collection($data);
     }
 
     /**
@@ -67,29 +67,29 @@ class CompanyBankAccountsController extends Controller
      */
     public function store(Request $request)
     {
-        return (new ComapnyBankAccountStoringService())->create($request);
+        return (new CompanyBankAccountStoringService())->create($request);
     }
 
     /**
      * @param Request $request
-     * @param ComapnyBankAccount $department
+     * @param CompanyBankAccount $companyBankAccount
      * @return JsonResponse
      */
-    public function update(Request $request, ComapnyBankAccount $department): JsonResponse
+    public function update(Request $request, CompanyBankAccount $companyBankAccount): JsonResponse
     {
-        return (new ComapnyBankAccountUpdatingService($department))->update($request);
+        return (new CompanyBankAccountUpdatingService($companyBankAccount))->update($request);
     }
 
     /**
-     * @param ComapnyBankAccount $department
+     * @param CompanyBankAccount $companyBankAccount
      * @return JsonResponse
      */
-    public function destroy(ComapnyBankAccount $department): JsonResponse
+    public function destroy(CompanyBankAccount $companyBankAccount): JsonResponse
     {
-        return (new ComapnyBankAccountDeletingService($department))->delete();
+        return (new CompanyBankAccountDeletingService($companyBankAccount))->delete();
     }
 
-    public function importComapnyBankAccounts(ImportFile $import)
+    public function importCompanyBankAccounts(ImportFile $import)
     {
         $file = $import->file;
 
@@ -97,20 +97,20 @@ class CompanyBankAccountsController extends Controller
             ->file($file)
             ->map(function ($item) {
                 $item = array_change_key_case($item);
-                return ComapnyBankAccount::create($item);
+                return CompanyBankAccount::create($item);
             })
             ->import();
     }
 
-    public function exportComapnyBankAccounts(Request $request)
+    public function exportCompanyBankAccounts(Request $request)
     {
-        $taxes = QueryBuilder::for(ComapnyBankAccount::class)->allowedFilters($this->filterable)->datesFiltering()->customOrdering()->cursor();
+        $taxes = QueryBuilder::for(CompanyBankAccount::class)->allowedFilters($this->filterable)->datesFiltering()->customOrdering()->cursor();
         $list  = new SheetCollection([
-            "ComapnyBankAccounts" => ExportBuilder::generator($taxes)
+            "CompanyBankAccounts" => ExportBuilder::generator($taxes)
         ]);
         return (new ExportBuilder($request->type))
             ->withSheet($list)
             ->map(fn ($item) => ['No.' => $item['id'], 'Name' => $item['name'], 'Status' => $item['status']['label']])
-            ->name('ComapnyBankAccounts')->build();
+            ->name('CompanyBankAccounts')->build();
     }
 }

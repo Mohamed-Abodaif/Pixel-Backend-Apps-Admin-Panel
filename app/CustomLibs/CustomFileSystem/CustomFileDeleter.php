@@ -6,14 +6,8 @@ use Exception;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
-abstract class CustomFileDeleter
+abstract class CustomFileDeleter extends CustomFileHandler
 {
-
-    protected function checkFilesManipulationConfig() : bool
-    {
-        return env("THIRD_PARTY_FILES_MANIPULATION") && env("FILESYSTEM_DRIVER") == "s3" && env("APP_ENV") != "local";
-    }
-
     /**
      * @param string $filePath
      * @return bool
@@ -24,12 +18,25 @@ abstract class CustomFileDeleter
         //If Config Values Is Not True .... Nothing Will Be Deleted
         if($this->checkFilesManipulationConfig()){return true;}
 
-        if(Storage::exists($filePath))
+        if(Storage::disk($this->disk)->exists($filePath))
         {
-            if(Storage::delete($filePath)){return true;}
+            if(Storage::disk($this->disk)->delete($filePath)){return true;}
             throw new Exception("Failed To Delete File : " . $filePath );
         }
         throw new Exception("File : " . $filePath . " Is Not Exists");
+    }
+
+    /**
+     * @param string $filePath
+     * @return bool
+     */
+    public function deleteFileIfExists(string $filePath) : bool
+    {
+        //If Config Values Is Not True .... Nothing Will Be Deleted
+        if($this->checkFilesManipulationConfig()){return true;}
+
+        if(!Storage::disk($this->disk)->exists($filePath)){return false;}
+        return Storage::disk($this->disk)->delete($filePath);
     }
 
     /**
@@ -52,9 +59,9 @@ abstract class CustomFileDeleter
      */
     public function deleteFolder(string $folderPath) : bool
     {
-        if(Storage::exists($folderPath))
+        if(Storage::disk($this->disk)->exists($folderPath))
         {
-            if(Storage::deleteDirectory($folderPath)){return true;}
+            if(Storage::disk($this->disk)->deleteDirectory($folderPath)){return true;}
             throw new Exception("Failed To Delete Folder : " . $folderPath );
         }
         throw new Exception("Folder : " . $folderPath . " Is Not Exists");

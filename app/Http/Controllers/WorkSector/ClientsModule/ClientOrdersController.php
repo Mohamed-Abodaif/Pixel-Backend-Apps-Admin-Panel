@@ -5,6 +5,7 @@ namespace App\Http\Controllers\WorkSector\ClientsModule;
 use ExportBuilder;
 use Illuminate\Http\Request;
 use App\Import\ImportBuilder;
+use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Spatie\QueryBuilder\QueryBuilder;
 use App\Http\Resources\SingleResource;
@@ -15,8 +16,9 @@ use App\Models\WorkSector\ClientsModule\ClientOrder;
 use App\Http\Requests\WorkSector\ClientsModule\ClientOrderRequest;
 use App\Http\Resources\WorkSector\ClientsModule\ClientOrderResource;
 use App\Services\WorkSector\ClientsModule\ClientOrderServices\ClientOrderDeletingService;
-use App\Services\WorkSector\ClientsModule\ClientOrderServices\ClientOrderStoringService;
 use App\Services\WorkSector\ClientsModule\ClientOrderServices\ClientOrderUpdatingService;
+use App\Services\WorkSector\ClientsModule\ClientOrdersServices\ClientOrderStoringService;
+
 
 class ClientOrdersController extends Controller
 {
@@ -85,7 +87,7 @@ class ClientOrdersController extends Controller
         return new SingleResource($item);
     }
 
-   
+
     public function importClientsOrders(ImportFile $import)
     {
         $file = $import->file;

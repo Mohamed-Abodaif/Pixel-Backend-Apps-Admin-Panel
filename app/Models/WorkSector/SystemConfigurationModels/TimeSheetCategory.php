@@ -23,7 +23,7 @@ class TimeSheetCategory extends BaseModel
 
     public function scopeActive()
     {
-        return $this->where('status', 1);
+        return $this->where('status', true);
     }
 
     public function subCategory(): HasMany

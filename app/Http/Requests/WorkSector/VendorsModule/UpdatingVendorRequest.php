@@ -3,7 +3,7 @@
 namespace App\Http\Requests\WorkSector\VendorsModule;
 
 use App\Http\Requests\BaseFormRequest;
-use App\Http\Requests\WorkSector\SystemConfigurationsRequests\StoringRequest;
+use App\Http\Requests\WorkSector\SystemConfigurations\StoringRequest;
 use App\Models\WorkSector\VendorsModule\Vendor;
 use Illuminate\Validation\Rule;
 

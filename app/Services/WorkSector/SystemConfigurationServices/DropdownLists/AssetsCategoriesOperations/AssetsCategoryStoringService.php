@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\AssetsCategoriesOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\AssetsCategoriesOperations;
 
 use Exception;
 use App\CustomLibs\ValidatorLib\Validator;
+use App\Http\Requests\WorkSector\SystemConfigurations\AssetsCategories\StoringAssetCategoryRequest;
 use App\Models\WorkSector\SystemConfigurationModels\AssetsCategory;
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationStoringService;
-use App\Http\Requests\SystemConfigurationsRequests\AssetsCategories\StoringAssetCategoryRequest;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\NeedToStoreDateFields;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\MustCreatedMultiplexed;
+use App\Services\WorkSector\Interfaces\NeedToStoreDateFields;
+use App\Services\WorkSector\Interfaces\MustCreatedMultiplexed;
 
 class AssetsCategoryStoringService extends SystemConfigurationStoringService implements MustCreatedMultiplexed, NeedToStoreDateFields
 {

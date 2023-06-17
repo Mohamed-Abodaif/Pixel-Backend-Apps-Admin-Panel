@@ -2,12 +2,9 @@
 
 namespace App\Models\WorkSector\ClientsModule;
 
-use App\Traits\Status;
-use App\Models\Client;
 use App\Models\BaseModel;
 
 use App\Traits\Calculations;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 

@@ -4,9 +4,9 @@ namespace App\Services\WorkSector\ClientsModule\ClientQuotationServices;
 
 
 use App\Http\Requests\WorkSector\ClientsModule\UpdatingClientQuotationRequest ;
-use App\Services\WorkSector\WorkSectorUpdatingService;
+use App\Services\CoreServices\CRUDServices\CRUDServiceTypes\UpdatingServices\UpdatingService;
 
-class ClientQuotationUpdatingService extends WorkSectorUpdatingService
+class ClientQuotationUpdatingService extends UpdatingService
 {
 
     protected function getDefinitionUpdatingFailingErrorMessage(): string

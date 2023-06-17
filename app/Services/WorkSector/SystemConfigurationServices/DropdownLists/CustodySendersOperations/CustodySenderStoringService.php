@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\CustodySendersOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\CustodySendersOperations;
 
+use App\Http\Requests\WorkSector\SystemConfigurations\CustodySenders\StoringCustodySenderRequest;
 use App\Models\WorkSector\SystemConfigurationModels\CustodySender;
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationStoringService;
-use App\Http\Requests\SystemConfigurationsRequests\CustodySenders\StoringCustodySenderRequest;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\NeedToStoreDateFields;
+use App\Services\WorkSector\Interfaces\NeedToStoreDateFields;
 
 
 class CustodySenderStoringService extends SystemConfigurationStoringService implements NeedToStoreDateFields

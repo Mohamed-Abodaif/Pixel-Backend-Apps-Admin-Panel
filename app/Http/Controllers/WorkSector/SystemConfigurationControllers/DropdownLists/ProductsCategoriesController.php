@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\WorkSector\SystemConfigurationControllers\DropdownLists;
 
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\ProductCategoriesOperations\ProductCategoryUpdatingService;
 use Illuminate\Http\Request;
 use App\Export\ExportBuilder;
 use App\Import\ImportBuilder;
@@ -10,9 +11,12 @@ use App\Http\Controllers\Controller;
 use Spatie\QueryBuilder\QueryBuilder;
 use App\Http\Resources\SingleResource;
 use Rap2hpoutre\FastExcel\SheetCollection;
-use App\Models\WorkSector\SystemConfigurationModels\ProductCategory;
-use App\Http\Requests\WorkSector\SystemConfigurationsRequests\ProductCategory\ProductCategoryRequest;
 use App\Http\Resources\WorkSector\SystemConfigurationResources\DropdownLists\ProductsCategoriesResource;
+use App\Models\WorkSector\SystemConfigurationModels\ProductCategory;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\ProductCategoriesOperations\ProductCategoryDeletingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\ProductCategoriesOperations\ProductCategoryStoringService;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Response;
 
 class ProductsCategoriesController extends Controller
 {
@@ -40,7 +44,7 @@ class ProductsCategoriesController extends Controller
             ->datesFiltering()->customOrdering()
             ->paginate($request->pageSize ?? 10);
 
-        return response()->success(['list' => $data], 'Asset Category created successfully.', 200);
+        return response()->success(['list' => $data], ['Asset Category created successfully.'], 200);
     }
 
     function list(Request $request)
@@ -59,42 +63,29 @@ class ProductsCategoriesController extends Controller
         return new SingleResource($item);
     }
 
-    public function store(ProductCategoryRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->items;
-        ProductCategory::insert($data);
-        $response = [
-            "message" => "Created Successfully",
-            "status" => "success"
-        ];
-        return response()->json($response, 200);
+        return (new ProductCategoryStoringService())->create($request);
     }
 
-    public function update(ProductCategoryRequest $request, $id)
+    
+    /**
+     * @param Request $request
+     * @param ProductCategory $category
+     * @return JsonResponse
+     */
+    public function update(Request $request, ProductCategory $category): JsonResponse
     {
-        $data = $request->input();
-
-
-        $asset_category = ProductCategory::findOrFail($id);
-        $asset_category->update($data);
-        $response = [
-            "message" => "Updated Successfully",
-            "status" => "success",
-            "data" => $asset_category
-        ];
-        return response()->json($response, 200);
+        return (new ProductCategoryUpdatingService($category))->update($request);
     }
 
-    public function destroy($id)
+    /**
+     * @param ProductCategory $category
+     * @return JsonResponse
+     */
+    public function destroy(ProductCategory $category): JsonResponse
     {
-        $asset_category = ProductCategory::findOrFail($id);
-        $asset_category->delete();
-
-        $response = [
-            "message" => "Deleted Successfully",
-            "status" => "success"
-        ];
-        return response()->json($response, 200);
+        return (new ProductCategoryDeletingService($category))->delete();
     }
 
     public function importProductsCategoies(ImportFile $import)

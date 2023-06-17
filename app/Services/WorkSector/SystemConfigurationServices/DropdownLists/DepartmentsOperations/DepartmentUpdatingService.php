@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\DepartmentsOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\DepartmentsOperations;
 
-
-use App\Http\Requests\SystemConfigurationsRequests\Departments\UpdatingDepartmentRequest;
+use App\Http\Requests\WorkSector\SystemConfigurations\Departments\UpdatingDepartmentRequest;
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationUpdatingService;
+
 
 class DepartmentUpdatingService extends SystemConfigurationUpdatingService
 {

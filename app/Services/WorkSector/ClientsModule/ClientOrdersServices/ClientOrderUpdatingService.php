@@ -3,10 +3,10 @@
 namespace App\Services\WorkSector\ClientsModule\ClientOrderServices;
 
 
-use App\Http\Requests\ClientsModule\Clients\UpdatingClientOrderRequest;
-use App\Services\WorkSector\WorkSectorUpdatingService;
+use App\Http\Requests\WorkSector\ClientsModule\UpdatingClientOrderRequest;
+use App\Services\CoreServices\CRUDServices\CRUDServiceTypes\UpdatingServices\UpdatingService;
 
-class ClientOrderUpdatingService extends WorkSectorUpdatingService
+class ClientOrderUpdatingService extends UpdatingService
 {
 
     protected function getDefinitionUpdatingFailingErrorMessage(): string

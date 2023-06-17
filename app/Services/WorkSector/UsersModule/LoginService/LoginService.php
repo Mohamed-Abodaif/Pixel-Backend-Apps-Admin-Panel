@@ -117,7 +117,7 @@ class LoginService
             $user = $this->checkUserData($data, $extraLoginConditions);
             $this->checkApprovementStatus($user);
             $this->checkVerificationStatus($user);
-            return $this->getSuccessResponse($user,['User Logged in Successfully'], 200);
+            return $this->getSuccessResponse($user, ['User Logged in Successfully'], 200);
         } catch (Exception $e) {
             return $this->getErrorResponse([$e->getMessage()]);
         }

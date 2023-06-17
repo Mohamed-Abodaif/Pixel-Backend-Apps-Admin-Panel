@@ -3,10 +3,10 @@
 namespace App\Services\PersonalSector\PersonalTransactions\Inflow\CustodiesServices;
 
 
-use App\Http\Requests\CustodysModule\Custodys\UpdatingCustodyRequest;
-use App\Services\WorkSector\WorkSectorUpdatingService;
+use App\Http\Requests\PersonalSector\PersonalTransactions\Inflow\UpdatingCustodyRequest;
+use App\Services\CoreServices\CRUDServices\CRUDServiceTypes\UpdatingServices\UpdatingService;
 
-class CustodyUpdatingService extends WorkSectorUpdatingService
+class CustodyUpdatingService extends UpdatingService
 {
 
     protected function getDefinitionUpdatingFailingErrorMessage(): string

@@ -11,10 +11,9 @@ use Spatie\QueryBuilder\QueryBuilder;
 use App\Http\Resources\SingleResource;
 use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\WorkSector\InventoryModule\Product;
-use App\Models\WorkSector\InventoryModule\ProductLogistic;
-use App\Models\WorkSector\InventoryModule\ProductSalesPrice;
-use App\Models\WorkSector\VendorsModule\ProductVendorsPrice;
 use App\Http\Requests\WorkSector\InventoryModule\ProductRequest;
+use App\Services\WorkSector\InventoryModule\ProductsService\ProductsStoringService;
+use App\Services\WorkSector\InventoryModule\ProductsService\ProductsUpdatingService;
 
 class ProductsController extends Controller
 {
@@ -47,64 +46,16 @@ class ProductsController extends Controller
         ]);
     }
 
-    public function store(ProductRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->only(
-            'product_name',
-            'department_id',
-            'category_id',
-            'product_condition',
-            'datasheet_attachment',
-            'manual_attachment',
-            'msds_attachment'
-        );
-        // dd($data,$request->all());
+       return (new ProductsStoringService())->create($request);
 
-        $product = Product::create($data);
-        $product_logistics = $request->product_logistics;
-        $product_sale_prices = $request->product_sale_prices;
-        $product_vendors_prices = $request->product_vendors_prices;
-
-        if (isset($product_logistics)) {
-            foreach ($product_logistics as $product_logistic) {
-                $product_logistic['product_id'] = $product->id;
-                ProductLogistic::create($product_logistic);
-            }
-        }
-        if (isset($product_sale_prices)) {
-            foreach ($product_sale_prices as $product_sale_price) {
-                $product_sale_price['product_id'] = $product->id;
-
-                ProductSalesPrice::create($product_sale_price);
-            }
-        }
-        if (isset($product_vendors_prices)) {
-            foreach ($product_sale_prices as $product_sale_price) {
-                $product_sale_price['product_id'] = $product->id;
-
-                ProductVendorsPrice::create($product_sale_price);
-            }
-        }
-        $response = [
-            "message" => "Created Successfully",
-            "status" => "success",
-            "data" => $product
-        ];
-        return response()->json($response, 200);
     }
 
     public function update(ProductRequest $request, $id)
     {
-        $data = $request->all();
-
         $expens_type = Product::findOrFail($id);
-        $expens_type->update($data);
-        $response = [
-            "message" => "Updated Successfully",
-            "status" => "success",
-            "data" => $expens_type
-        ];
-        return response()->json($response, 200);
+        return (new ProductsUpdatingService($expens_type))->update($request);
     }
 
     public function destroy($id)

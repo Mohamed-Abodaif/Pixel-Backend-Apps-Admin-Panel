@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\ExpenseTypesOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\ExpenseTypesOperations;
 
 use Exception;
 use App\CustomLibs\ValidatorLib\Validator;
 
-use App\Http\Requests\SystemConfigurationsRequests\ExpenseTypes\StoringExpenseTypeRequest;
+use App\Http\Requests\WorkSector\SystemConfigurations\ExpenseTypes\StoringExpenseTypeRequest;
+use App\Models\WorkSector\SystemConfigurationModels\ExpenseType;
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationStoringService;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\NeedToStoreDateFields;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\MustCreatedMultiplexed;
+use App\Services\WorkSector\Interfaces\NeedToStoreDateFields;
+use App\Services\WorkSector\Interfaces\MustCreatedMultiplexed;
 
 class ExpenseTypeStoringService extends SystemConfigurationStoringService implements MustCreatedMultiplexed, NeedToStoreDateFields
 {

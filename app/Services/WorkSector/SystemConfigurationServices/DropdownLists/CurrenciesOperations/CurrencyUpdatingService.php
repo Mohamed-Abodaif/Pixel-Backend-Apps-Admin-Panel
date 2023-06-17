@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\CurrenciesOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\CurrenciesOperations;
 
-
-use App\Http\Requests\SystemConfigurationsRequests\Currencies\UpdatingCurrencyRequest;
+use App\Http\Requests\WorkSector\SystemConfigurations\Currencies\UpdatingCurrencyRequest;
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationUpdatingService;
 
 class CurrencyUpdatingService extends SystemConfigurationUpdatingService

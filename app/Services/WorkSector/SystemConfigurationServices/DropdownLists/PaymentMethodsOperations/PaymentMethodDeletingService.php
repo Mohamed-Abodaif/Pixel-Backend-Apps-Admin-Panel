@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\PaymentMethodsOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\PaymentMethodsOperations;
 
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationDeletingService;
 

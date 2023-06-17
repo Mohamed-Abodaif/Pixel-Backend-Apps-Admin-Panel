@@ -3,7 +3,7 @@
 namespace App\Services\WorkSector\SystemConfigurationServices\RolesAndPermissions\RoleUsersManagement;
 
 use Exception;
-use App\Models\User;
+use App\Models\WorkSector\UsersModule\User;
 use App\Jobs\RoleJobs\SwitchAllRoleUsersToDefaultRoleJob;
 use App\Models\WorkSector\SystemConfigurationModels\RoleModel;
 

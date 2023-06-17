@@ -11,7 +11,7 @@ use App\Http\Resources\SingleResource;
 use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\WorkSector\ClientsModule\PurchaseOrderType;
 use App\Http\Resources\WorkSector\SystemConfigurationResources\DropdownLists\PurchaseOrderTypeResource;
-use App\Http\Requests\WorkSector\SystemConfigurationsRequests\PurchaseOrderType\PurchaseOrderTypeRequest;
+use App\Http\Requests\WorkSector\SystemConfigurations\PurchaseOrderType\PurchaseOrderTypeRequest;
 
 class PurchaseOrderTypeController extends Controller
 {

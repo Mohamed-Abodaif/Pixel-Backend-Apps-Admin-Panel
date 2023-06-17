@@ -2,9 +2,9 @@
 
 namespace App\Services\PersonalSector\PersonalTransactions\Inflow\CustodiesServices;
 
-use App\Services\WorkSector\WorkSectorDeletingService;
+use App\Services\CoreServices\CRUDServices\CRUDServiceTypes\DeletingService;
 
-class CustodyDeletingService extends WorkSectorDeletingService
+class CustodyDeletingService extends DeletingService
 {
 
     protected function getDefinitionDeletingFailingErrorMessage(): string

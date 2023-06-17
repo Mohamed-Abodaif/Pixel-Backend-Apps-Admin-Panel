@@ -22,6 +22,7 @@ class CompanyAuthController extends Controller
 {
     public function register(CompanyRequest $request)
     {
+
         return (new CompanyRegisterService())->createAccount($request);
     }
 

@@ -11,9 +11,9 @@ use App\Http\Resources\SingleResource;
 use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\WorkSector\SystemConfigurationModels\PaymentMethod;
 use App\Http\Resources\WorkSector\SystemConfigurationResources\DropdownLists\PaymentMethodsResource;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\PaymentMethodsOperations\PaymentMethodStoringService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\PaymentMethodsOperations\PaymentMethodDeletingService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\PaymentMethodsOperations\PaymentMethodUpdatingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\PaymentMethodsOperations\PaymentMethodStoringService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\PaymentMethodsOperations\PaymentMethodDeletingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\PaymentMethodsOperations\PaymentMethodUpdatingService;
 
 class PaymentMethodsController extends Controller
 {

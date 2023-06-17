@@ -2,11 +2,13 @@
 
 namespace App\Services\WorkSector;
 
+use App\CustomLibs\ValidatorLib\ArrayValidator;
+use App\CustomLibs\ValidatorLib\Validator;
+use App\Exceptions\JsonException;
+use App\Services\CoreServices\CRUDServices\StoringServices\StoringService;
+use App\Services\CoreServices\CRUDServices\UpdatingServices\UpdatingService;
 use Exception;
 use Illuminate\Http\Request;
-use App\CustomLibs\ValidatorLib\Validator;
-use App\CustomLibs\ValidatorLib\ArrayValidator;
-use App\Services\WorkSector\ClientsModule\Interfaces\MustCreatedMultiplexed;
 
 trait ValidationOperationsTrait
 {
@@ -15,74 +17,34 @@ trait ValidationOperationsTrait
 
     /**
      * @param Request $request
-     * @return ClientStoringService|ClientUpdatingService|ValidationOperationsTrait
+     * @return StoringService|UpdatingService
      * @throws Exception
      */
-    protected function initValidator(Request $request): self
+    protected function initValidator(Request $request): StoringService|UpdatingService
     {
         /** @var ArrayValidator $this->validator */
         $this->validator = new ArrayValidator($this->getRequestClass(), $request);
-
-        if ($this instanceof MustCreatedMultiplexed) {
-            $this->setRequestGeneralValidationRules();
-        }
         return $this;
     }
 
-    protected function getRequestData(): self
+    /**
+     * @return StoringService|UpdatingService
+     */
+    protected function setRequestData(): StoringService|UpdatingService
     {
         $this->data = $this->validator->getRequestData();
         return $this;
     }
 
     /**
-     * @return ClientStoringService|ClientUpdatingService|ValidationOperationsTrait
-     * @throws Exception
+     * @return StoringService|UpdatingService
+     * @throws JsonException
      */
-    protected function validateData(): self
+    protected function validateData(): StoringService|UpdatingService
     {
         $validationResult = $this->validator->validate();
-        if (is_array($validationResult)) {
-            throw new Exception(join(" , ", $validationResult));
-        }
+        if (is_array($validationResult)) { throw new JsonException(join(" , ", $validationResult)); }
         return $this;
     }
 
-    protected function getFillablesValues(array $data, array $dateFields = []): array
-    {
-        $fillableValues = [];
-        foreach ($data as $index => $row) {
-            $fillables = $this->processFillableValues($row);
-            //If No Fillable Filed Is Set ... There Is No Need To This Row
-            if (empty($fillables)) {
-                continue;
-            }
-            $fillableValues[$index] =  $fillables;
-
-            if (empty($dateFields)) {
-                continue;
-            }
-            $fillableValues[$index] = $this->setDateFieldsValues($fillableValues[$index],  $dateFields);
-        }
-        return $fillableValues;
-    }
-
-    protected function processFillableValues(array $sourceDataRow): array
-    {
-        $fillableValues = [];
-        foreach ($this->getFillableColumns() as $column) {
-            if (isset($sourceDataRow[$column])) {
-                $fillableValues[$column] = $sourceDataRow[$column];
-            }
-        }
-        return $fillableValues;
-    }
-
-    protected function setDateFieldsValues(array $dataArrayToChange, array $dateFields = []): array
-    {
-        foreach ($dateFields as $field) {
-            $dataArrayToChange[$field] = now();
-        }
-        return $dataArrayToChange;
-    }
 }

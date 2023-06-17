@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\TaxTypesOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\TaxTypesOperations;
 
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationDeletingService;
 

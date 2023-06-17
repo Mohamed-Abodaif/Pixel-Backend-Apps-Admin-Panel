@@ -11,9 +11,9 @@ class Fees extends BaseModel
     use HasFactory,SoftDeletes;
 
     protected $table="fees";
-    const ROUTE_PARAMETER_NAME = "fees";
+    const ROUTE_PARAMETER_NAME = "taxes-official-fees";
     protected $fillable =[
-        'name' , "status"
+        'name' , "status","percentage"
     ];
 
     public function scopeActive($query)
@@ -22,5 +22,6 @@ class Fees extends BaseModel
     }
     protected $casts = [
         'status'=>'boolean',
+        'percentage'=>'float'
     ];
 }

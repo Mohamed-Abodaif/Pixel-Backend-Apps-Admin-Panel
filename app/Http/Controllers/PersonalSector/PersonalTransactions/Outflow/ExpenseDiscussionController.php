@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 use Spatie\QueryBuilder\QueryBuilder;
 use App\Models\WorkSector\SystemConfigurationModels\Expense;
 use App\Models\WorkSector\SystemConfigurationModels\ExpenseDiscussion;
-use App\Http\Requests\WorkSector\SystemConfigurationsRequests\ExpenseTypes\ExpenseDiscussionRequest;
+use App\Http\Requests\WorkSector\SystemConfigurations\ExpenseTypes\ExpenseDiscussionRequest;
 
 class ExpenseDiscussionController extends Controller
 {

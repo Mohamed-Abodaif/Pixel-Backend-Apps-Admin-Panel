@@ -77,7 +77,7 @@ abstract class SystemConfigurationDeletingService extends SystemConfigurationMan
             DB::commit();
 
             //Response After getting Success
-            return Response::success([] , [$this->getDefinitionDeletingSuccessMessage()]);
+            return Response::success([$this->getDefinitionDeletingSuccessMessage()]);
 
         }catch (Exception $e)
         {
@@ -85,7 +85,7 @@ abstract class SystemConfigurationDeletingService extends SystemConfigurationMan
             DB::rollBack();
 
             //Response The Error Messages By Exception Messages
-            return Response::error([] , [$e->getMessage()]);
+            return Response::error([$e->getMessage()]);
         }
     }
 

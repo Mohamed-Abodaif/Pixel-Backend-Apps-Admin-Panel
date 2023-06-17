@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Response;
 use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\WorkSector\SystemConfigurationModels\CustodySender;
 use App\Http\Resources\WorkSector\SystemConfigurationResources\DropdownLists\CustodySenderResource;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\CustodySendersOperations\CustodySenderStoringService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\CustodySendersOperations\CustodySenderDeletingService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\CustodySendersOperations\CustodySenderUpdatingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\CustodySendersOperations\CustodySenderStoringService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\CustodySendersOperations\CustodySenderDeletingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\CustodySendersOperations\CustodySenderUpdatingService;
 
 class CustodySendersController extends Controller
 {

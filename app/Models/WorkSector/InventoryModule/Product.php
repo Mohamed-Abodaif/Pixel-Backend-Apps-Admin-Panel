@@ -7,8 +7,9 @@ use App\Traits\Calculations;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Services\CoreServices\CRUDServices\Interfaces\OwnsRelationships;
 
-class Product extends BaseModel
+class Product extends BaseModel implements  OwnsRelationships
 {
     use HasFactory, Calculations, SoftDeletes;
 
@@ -38,7 +39,7 @@ class Product extends BaseModel
         return $this->belongsTo(Department::class)->select('id', 'name');
     }
     public function logistics()
-    {
+    { 
         return $this->hasMany(ProductLogistic::class, 'product_id');
     }
     public function salesPrices()
@@ -49,4 +50,8 @@ class Product extends BaseModel
     {
         return $this->hasMany(ProductVendorsPrice::class, 'product_id');
     }
+    public function getOwnedRelationshipNames() : array{
+        return ["logistics","salesPrices","vendorsPrices"];
+    }
+
 }

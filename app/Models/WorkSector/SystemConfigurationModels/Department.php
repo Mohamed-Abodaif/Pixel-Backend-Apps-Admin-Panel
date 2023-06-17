@@ -2,18 +2,16 @@
 
 namespace App\Models\WorkSector\SystemConfigurationModels;
 
-use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Model;
 
-class Department extends BaseModel
+class Department extends Model
 {
-    use HasFactory, SoftDeletes;
-
+    use HasFactory;
     protected $table = "departments";
     const ROUTE_PARAMETER_NAME = "department";
     protected $fillable = [
-        'name', "status"
+        "name", "department_type","parent_id","status"
     ];
 
     public function scopeActive($query)
@@ -22,5 +20,11 @@ class Department extends BaseModel
     }
     protected $casts = [
         'status' => 'boolean',
+        'parent_id' => 'integer'
     ];
+
+    public function parent()
+    {
+        return $this->belongsTo(Department::class, 'parent_id');
+    }
 }

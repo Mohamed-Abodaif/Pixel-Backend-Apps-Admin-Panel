@@ -11,7 +11,7 @@ class OfficalRecieptIssuer extends BaseModel
     use HasFactory, SoftDeletes;
 
     protected $table = "offical_reciept_issuers";
-    const ROUTE_PARAMETER_NAME = "offical-reciept-issuers";
+    const ROUTE_PARAMETER_NAME = "offical-receipt-issuers";
     protected $fillable = [
         'name', "status"
     ];

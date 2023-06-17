@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\BranchsOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\BranchesOperations;
 
 use Exception;
 use App\CustomLibs\ValidatorLib\Validator;
+use App\Http\Requests\WorkSector\SystemConfigurations\Branches\StoringBranchRequest;
 use App\Models\WorkSector\SystemConfigurationModels\Branch;
-use App\Http\Requests\SystemConfigurationsRequests\Branchs\StoringBranchRequest;
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationStoringService;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\NeedToStoreDateFields;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\MustCreatedMultiplexed;
+use App\Services\WorkSector\Interfaces\NeedToStoreDateFields;
+use App\Services\WorkSector\Interfaces\MustCreatedMultiplexed;
 
 class BranchStoringService extends SystemConfigurationStoringService implements MustCreatedMultiplexed, NeedToStoreDateFields
 {
@@ -42,7 +42,7 @@ class BranchStoringService extends SystemConfigurationStoringService implements 
 
     protected function getFillableColumns(): array
     {
-        return ["name", "status"];
+        return ["name", "branch_type","parent_id","status"];
     }
 
     public function getDateFieldNames(): array

@@ -11,10 +11,11 @@ use App\Http\Resources\SingleResource;
 use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\PersonalSector\PersonalTransactions\Inflow\Custody;
 use App\Http\Resources\PersonalSector\PersonalTransactions\Inflow\CustodiesResource;
-use App\Http\Requests\WorkSector\SystemConfigurationsRequests\CustodySenders\CustodyRequest;
+use App\Http\Requests\WorkSector\SystemConfigurations\CustodySenders\CustodyRequest;
 use App\Services\PersonalSector\PersonalTransactions\Inflow\CustodiesServices\CustodyDeletingService;
 use App\Services\PersonalSector\PersonalTransactions\Inflow\CustodiesServices\CustodyStoringService;
 use App\Services\PersonalSector\PersonalTransactions\Inflow\CustodiesServices\CustodyUpdatingService;
+use Illuminate\Http\JsonResponse;
 
 class CustodiesController extends Controller
 {

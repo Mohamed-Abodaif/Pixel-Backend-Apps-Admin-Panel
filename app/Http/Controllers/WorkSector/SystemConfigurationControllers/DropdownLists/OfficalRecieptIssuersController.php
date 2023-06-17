@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Response;
 use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\WorkSector\SystemConfigurationModels\OfficalRecieptIssuer;
 use App\Http\Resources\WorkSector\SystemConfigurationResources\DropdownLists\OfficalRecieptIssuerResource;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\OfficalRecieptIssuersOperations\OfficalRecieptIssuerStoringService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\OfficalRecieptIssuersOperations\OfficalRecieptIssuerDeletingService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\OfficalRecieptIssuersOperations\OfficalRecieptIssuerUpdatingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\OfficalRecieptIssuersOperations\OfficalRecieptIssuerStoringService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\OfficalRecieptIssuersOperations\OfficalRecieptIssuerDeletingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\OfficalRecieptIssuersOperations\OfficalRecieptIssuerUpdatingService;
 
 class OfficalRecieptIssuersController extends Controller
 {
@@ -45,9 +45,9 @@ class OfficalRecieptIssuersController extends Controller
         return Response::success(['list' => $data]);
     }
 
-    public function show(OfficalRecieptIssuer $department)
+    public function show(OfficalRecieptIssuer $officalReceiptIssuers)
     {
-        return new SingleResource($department);
+        return new SingleResource($officalReceiptIssuers);
     }
 
     function list()
@@ -72,21 +72,21 @@ class OfficalRecieptIssuersController extends Controller
 
     /**
      * @param Request $request
-     * @param OfficalRecieptIssuer $department
+     * @param OfficalRecieptIssuer $officalReceiptIssuers
      * @return JsonResponse
      */
-    public function update(Request $request, OfficalRecieptIssuer $department): JsonResponse
+    public function update(Request $request, OfficalRecieptIssuer $officalReceiptIssuers): JsonResponse
     {
-        return (new OfficalRecieptIssuerUpdatingService($department))->update($request);
+        return (new OfficalRecieptIssuerUpdatingService($officalReceiptIssuers))->update($request);
     }
 
     /**
-     * @param OfficalRecieptIssuer $department
+     * @param OfficalRecieptIssuer $officalReceiptIssuers
      * @return JsonResponse
      */
-    public function destroy(OfficalRecieptIssuer $department): JsonResponse
+    public function destroy(OfficalRecieptIssuer $officalReceiptIssuers): JsonResponse
     {
-        return (new OfficalRecieptIssuerDeletingService($department))->delete();
+        return (new OfficalRecieptIssuerDeletingService($officalReceiptIssuers))->delete();
     }
 
     public function importOfficalRecieptIssuers(ImportFile $import)

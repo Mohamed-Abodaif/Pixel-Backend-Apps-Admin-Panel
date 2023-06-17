@@ -3,15 +3,13 @@
 namespace App\Services\WorkSector\SystemConfigurationServices;
 
 
-// use App\Services\SystemConfigurationsManagementServices\Interfaces\MustCreatedMultiplexed;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
-// use App\Services\SystemConfigurationsManagementServices\Interfaces\NeedToStoreDateFields;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\NeedToStoreDateFields;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\MustCreatedMultiplexed;
+use App\Services\WorkSector\Interfaces\NeedToStoreDateFields;
+use App\Services\WorkSector\Interfaces\MustCreatedMultiplexed;
 
 abstract class SystemConfigurationStoringService  extends SystemConfigurationManagementService
 {
@@ -106,6 +104,7 @@ abstract class SystemConfigurationStoringService  extends SystemConfigurationMan
             /** @var MustCreatedMultiplexed $this */
             return $this->data[$this->getRequestDataKey()] ?? null;
         }
+
         return [$this->data];
     }
 
@@ -117,6 +116,7 @@ abstract class SystemConfigurationStoringService  extends SystemConfigurationMan
     {
         $data = $this->getCreationDataArray();
         if ($data === null) {
+            dd($data);
             throw new Exception($this->getDefinitionCreatingFailingErrorMessage());
         }
         $dateFields = $this instanceof NeedToStoreDateFields ? $this->getDateFieldNames() : [];
@@ -130,6 +130,7 @@ abstract class SystemConfigurationStoringService  extends SystemConfigurationMan
     protected function createDefinitionConveniently(): self
     {
         $data = $this->makeDataReadyToUse();
+
         if ($this->IsItMultipleCreation()) {
             /** @var MustCreatedMultiplexed $this */
 

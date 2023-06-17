@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\TendersOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\TendersOperations;
 
 use Exception;
 use App\CustomLibs\ValidatorLib\Validator;
 use App\Models\WorkSector\SystemConfigurationModels\Tender;
-use App\Http\Requests\WorkSector\SystemConfigurationsRequests\Tenders\StoringTenderRequest;
+use App\Http\Requests\WorkSector\SystemConfigurations\Tenders\StoringTenderRequest;
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationStoringService;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\NeedToStoreDateFields;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\MustCreatedMultiplexed;
+use App\Services\WorkSector\Interfaces\NeedToStoreDateFields;
+use App\Services\WorkSector\Interfaces\MustCreatedMultiplexed;
 
 class TenderStoringService extends SystemConfigurationStoringService implements MustCreatedMultiplexed, NeedToStoreDateFields
 {

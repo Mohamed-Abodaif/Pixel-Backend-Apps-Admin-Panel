@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\CustodySendersOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\CustodySendersOperations;
 
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationUpdatingService;
-use App\Http\Requests\SystemConfigurationsRequests\CustodySenders\UpdatingCustodySenderRequest;
+use App\Http\Requests\WorkSector\SystemConfigurations\CustodySenders\UpdatingCustodySenderRequest;
 
 class CustodySenderUpdatingService extends SystemConfigurationUpdatingService
 {

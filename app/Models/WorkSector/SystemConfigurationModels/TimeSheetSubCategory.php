@@ -13,7 +13,7 @@ class TimeSheetSubCategory extends BaseModel
     use HasFactory;
 
     protected $table = "employees_timesheet_sub_categories";
-    const ROUTE_PARAMETER_NAME = "category";
+    const ROUTE_PARAMETER_NAME = "subcategory";
     protected $fillable = [
         'name',
         'timesheet_category_id',
@@ -23,6 +23,7 @@ class TimeSheetSubCategory extends BaseModel
 
     protected $casts = [
         'status' => 'boolean',
+        'timesheet_category_id' => 'integer'
     ];
 
     /**
@@ -40,11 +41,11 @@ class TimeSheetSubCategory extends BaseModel
 
     public function category(): BelongsTo
     {
-        return $this->belongsTo(TimeSheetCategory::class, 'timesheet_category_id');
+        return $this->belongsTo(TimeSheetCategory::class, 'timesheet_category_id','id');
     }
 
     public function scopeActive()
     {
-        return $this->where('status', 1);
+        return $this->where('status', true);
     }
 }

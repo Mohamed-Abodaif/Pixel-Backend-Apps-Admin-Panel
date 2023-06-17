@@ -7,8 +7,9 @@ use App\Traits\Calculations;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Services\CoreServices\CRUDServices\Interfaces\OwnsRelationships;
 
-class Service extends BaseModel
+class Service extends BaseModel implements  OwnsRelationships
 {
     use HasFactory, Calculations, SoftDeletes;
 
@@ -35,5 +36,17 @@ class Service extends BaseModel
     public function department()
     {
         return $this->belongsTo(Department::class)->select('id', 'name');
+    }
+    public function salesPrices()
+    {
+        return $this->hasMany(ServiceSalesPrice::class, 'service_id');
+    }
+
+    public function vendorsPrices()
+    {
+        return $this->hasMany(ServiceVendorPrice::class, 'service_id');
+    }
+    public function getOwnedRelationshipNames() : array{
+        return ["salesPrices","vendorsPrices"];
     }
 }

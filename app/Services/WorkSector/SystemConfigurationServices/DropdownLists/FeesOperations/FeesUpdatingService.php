@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\FeessOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\FeesOperations;
 
-
-use App\Http\Requests\SystemConfigurationsRequests\Feess\UpdatingFeesRequest;
+use App\Http\Requests\WorkSector\SystemConfigurations\Fees\UpdatingFeesRequest;
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationUpdatingService;
 
 class FeesUpdatingService extends SystemConfigurationUpdatingService

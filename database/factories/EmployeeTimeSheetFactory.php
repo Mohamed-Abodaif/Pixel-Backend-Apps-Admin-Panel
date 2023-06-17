@@ -6,7 +6,7 @@ use App\Models\Client;
 use App\Models\ClientOrder;
 use App\Models\Country;
 use App\Models\SystemConfig\TimeSheetSubCategory;
-use App\Models\User;
+use App\Models\WorkSector\UsersModule\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class EmployeeTimeSheetFactory extends Factory

@@ -2,9 +2,9 @@
 
 namespace App\Services\PersonalSector\PersonalTransactions\Inflow\BonusesServices;
 
-use App\Services\WorkSector\WorkSectorDeletingService;
+use App\Services\CoreServices\CRUDServices\CRUDServiceTypes\DeletingService;
 
-class BonusDeletingService extends WorkSectorDeletingService
+class BonusDeletingService extends DeletingService
 {
 
     protected function getDefinitionDeletingFailingErrorMessage(): string

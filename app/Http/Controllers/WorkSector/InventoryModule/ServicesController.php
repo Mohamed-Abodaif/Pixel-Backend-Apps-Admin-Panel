@@ -14,6 +14,8 @@ use App\Models\WorkSector\InventoryModule\ServiceSalesPrice;
 use App\Models\WorkSector\InventoryModule\ServiceVendorPrice;
 use App\Http\Requests\WorkSector\InventoryModule\ServiceRequest;
 use App\Http\Resources\WorkSector\InventoryModule\ServicesResource;
+use App\Services\WorkSector\InventoryModule\ServicesService\ServicesStoringService;
+use App\Services\WorkSector\InventoryModule\ServicesService\ServicesUpdatingService;
 
 class ServicesController extends Controller
 {
@@ -47,55 +49,13 @@ class ServicesController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->only(
-            'service_name',
-            'department_id',
-            'category_id',
-            'description',
-            'tools_certificates',
-            'manual_attachment'
-        );
-        // dd($data,$request->all());
-
-        $service = Service::create($data);
-        $service_sale_prices = $request->service_sale_prices;
-        $service_vendors_prices = $request->service_vendors_prices;
-
-
-        if (isset($service_sale_prices)) {
-            foreach ($service_sale_prices as $service_sale_price) {
-                $service_sale_price['service_id'] = $service->id;
-
-                ServiceSalesPrice::create($service_sale_price);
-            }
-        }
-        if (isset($service_vendors_prices)) {
-            foreach ($service_sale_prices as $service_sale_price) {
-                $service_sale_price['service_id'] = $service->id;
-
-                ServiceVendorPrice::create($service_sale_price);
-            }
-        }
-        $response = [
-            "message" => "Created Successfully",
-            "status" => "success",
-            "data" => $service
-        ];
-        return response()->json($response, 200);
+        return (new ServicesStoringService())->create($request);
     }
 
-    public function update(ServiceRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $data = $request->all();
-
         $expens_type = Service::findOrFail($id);
-        $expens_type->update($data);
-        $response = [
-            "message" => "Updated Successfully",
-            "status" => "success",
-            "data" => $expens_type
-        ];
-        return response()->json($response, 200);
+        return (new ServicesUpdatingService($expens_type))->update($request);
     }
 
     public function destroy($id)

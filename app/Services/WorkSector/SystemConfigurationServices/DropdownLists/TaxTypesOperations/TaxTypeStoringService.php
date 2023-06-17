@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\TaxTypesOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\TaxTypesOperations;
 
 use Exception;
 use App\CustomLibs\ValidatorLib\Validator;
 use App\Models\WorkSector\SystemConfigurationModels\TaxType;
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationStoringService;
-use App\Http\Requests\WorkSector\SystemConfigurationsRequests\TaxTypes\StoringTaxTypeRequest;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\NeedToStoreDateFields;
-use App\Services\WorkSector\SystemConfigurationsManagementServices\Interfaces\MustCreatedMultiplexed;
+use App\Http\Requests\WorkSector\SystemConfigurations\TaxTypes\StoringTaxTypeRequest;
+use App\Services\WorkSector\Interfaces\NeedToStoreDateFields;
+use App\Services\WorkSector\Interfaces\MustCreatedMultiplexed;
 
 class TaxTypeStoringService extends SystemConfigurationStoringService implements MustCreatedMultiplexed, NeedToStoreDateFields
 {

@@ -17,6 +17,7 @@ use App\Http\Resources\WorkSector\ClientsModule\ClientQuotationResource;
 use App\Services\WorkSector\ClientsModule\ClientQuotationServices\ClientQuotationDeletingService;
 use App\Services\WorkSector\ClientsModule\ClientQuotationServices\ClientQuotationStoringService;
 use App\Services\WorkSector\ClientsModule\ClientQuotationServices\ClientQuotationUpdatingService;
+use Illuminate\Http\JsonResponse;
 
 class ClientQuotationsController extends Controller
 {

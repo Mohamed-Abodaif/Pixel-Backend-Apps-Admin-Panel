@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Response;
 use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\WorkSector\SystemConfigurationModels\AssetsCategory;
 use App\Http\Resources\WorkSector\SystemConfigurationResources\AssetsCategoriesResource;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\AssetsCategoriesOperations\AssetsCategoryStoringService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\AssetsCategoriesOperations\AssetsCategoryDeletingService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\AssetsCategoriesOperations\AssetsCategoryUpdatingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\AssetsCategoriesOperations\AssetsCategoryStoringService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\AssetsCategoriesOperations\AssetsCategoryDeletingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\AssetsCategoriesOperations\AssetsCategoryUpdatingService;
 
 class AssetsCategoriesController extends Controller
 {

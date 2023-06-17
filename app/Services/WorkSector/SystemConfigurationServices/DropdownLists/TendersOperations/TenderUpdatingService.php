@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\TendersOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\TendersOperations;
 
 
-use App\Http\Requests\WorkSector\SystemConfigurationsRequests\Tenders\UpdatingTenderRequest;
+use App\Http\Requests\WorkSector\SystemConfigurations\Tenders\UpdatingTenderRequest;
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationUpdatingService;
 
 

@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Response;
 use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\WorkSector\SystemConfigurationModels\Area;
 use App\Http\Resources\WorkSector\SystemConfigurationResources\DropdownLists\AreaResource;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\AreasOperations\AreaStoringService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\AreasOperations\AreaDeletingService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\AreasOperations\AreaUpdatingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\AreasOperations\AreaStoringService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\AreasOperations\AreaDeletingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\AreasOperations\AreaUpdatingService;
 
 class AreasController extends Controller
 {

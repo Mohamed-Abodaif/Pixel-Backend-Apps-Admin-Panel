@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\BranchesOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\BranchesOperations;
 
+use App\Http\Requests\WorkSector\SystemConfigurations\Branches\UpdatingBranchRequest;
 use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationUpdatingService;
 
 

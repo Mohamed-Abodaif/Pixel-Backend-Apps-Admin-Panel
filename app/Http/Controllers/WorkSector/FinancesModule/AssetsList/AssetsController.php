@@ -12,6 +12,9 @@ use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\WorkSector\FinanceModule\AssetsList\Asset;
 use App\Http\Requests\WorkSector\FinancesModule\AssetsList\AssetsRequest;
 use App\Http\Resources\WorkSector\FinancesModule\AssetsList\AssetsResource;
+use App\Services\WorkSector\FinancesModule\AssetsListService\AssetStoringService;
+use App\Services\WorkSector\FinancesModule\AssetsListService\AssetUpdatingService;
+use Illuminate\Http\JsonResponse;
 
 class AssetsController extends Controller
 {
@@ -57,42 +60,21 @@ class AssetsController extends Controller
         ]);
     }
 
-    public function store(AssetsRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->input();
+        $request['order_number'] = 'VO-34343';
 
-        $asset = Asset::create($data);
-        $response = [
-            "message" => "Created Successfully",
-            "status" => "success",
-            "data" => $asset
-        ];
-        return response()->json($response, 200);
+        return (new AssetStoringService())->create($request);
     }
 
-    public function update(AssetsRequest $request, $id)
+    public function update(Request $request, Asset $vendorOrder): JsonResponse
     {
-        $data = $request->all();
-
-        $expense_type = Asset::findOrFail($id);
-        $expense_type->update($data);
-        $response = [
-            "message" => "Updated Successfully",
-            "status" => "success",
-            "data" => $expense_type
-        ];
-        return response()->json($response, 200);
+        return (new AssetUpdatingService($vendorOrder))->update($request);
     }
 
-    public function destroy($id)
+    public function  destroy(Asset $vendor): JsonResponse
     {
-        $expense_type = Asset::findOrFail($id);
-        $expense_type->delete();
-        $response = [
-            "message" => "Deleted Successfully",
-            "status" => "success"
-        ];
-        return response()->json($response, 200);
+        return (new AssetDeletingService($vendor))->delete();
     }
 
     public function show($id)

@@ -3,7 +3,7 @@
 namespace App\Models\WorkSector\SystemConfigurationModels;
 
 use App\Models\BaseModel;
-use App\Models\User;
+use App\Models\WorkSector\UsersModule\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;

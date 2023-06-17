@@ -31,12 +31,13 @@ class StoringClientQuotationRequest extends BaseFormRequest
                 'due_date' => 'required|date',
                 'client_id' => 'required|exists:clients,id',
                 'quotation_name' => 'required|unique:client_quotations',
+                'quotation_number' => 'required|unique:client_quotations',
                 'quotation_net_value' => 'required|numeric|min:0|digits_between:1,15',
                 'department_id' => 'required|exists:departments,id',
                 'payments_terms_id' => 'required|exists:payment_terms,id',
                 'currency_id' => 'required|exists:currencies,id',
                 'notes' => 'nullable',
-        ];
+            ];
     }
 
     public function messages()
@@ -47,6 +48,5 @@ class StoringClientQuotationRequest extends BaseFormRequest
             "quotation_name" => "Quotation 's Name Has Not Been Sent !",
             "quotation_name.unique" => "Quotation Name Is Already Stored In Our Database !"
         ];
-        
     }
 }

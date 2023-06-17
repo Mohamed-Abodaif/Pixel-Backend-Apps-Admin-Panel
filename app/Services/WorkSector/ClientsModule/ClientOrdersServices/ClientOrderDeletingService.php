@@ -2,9 +2,9 @@
 
 namespace App\Services\WorkSector\ClientsModule\ClientOrderServices;
 
-use App\Services\WorkSector\WorkSectorDeletingService;
+use App\Services\CoreServices\CRUDServices\CRUDServiceTypes\DeletingService;
 
-class ClientOrderDeletingService extends WorkSectorDeletingService
+class ClientOrderDeletingService extends DeletingService
 {
 
     protected function getDefinitionDeletingFailingErrorMessage(): string

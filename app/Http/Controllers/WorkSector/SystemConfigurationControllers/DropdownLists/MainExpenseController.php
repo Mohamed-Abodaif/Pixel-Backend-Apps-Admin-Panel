@@ -11,7 +11,7 @@ use Spatie\QueryBuilder\AllowedFilter;
 use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Http\Resources\WorkSector\HRModule\ExpenseResource;
 use App\Models\WorkSector\SystemConfigurationModels\Expense;
-use App\Http\Requests\WorkSector\SystemConfigurationsRequests\ExpenseTypes\ExpenseRequest;
+use App\Http\Requests\WorkSector\SystemConfigurations\ExpenseTypes\ExpenseRequest;
 
 class MainExpenseController extends Controller
 {

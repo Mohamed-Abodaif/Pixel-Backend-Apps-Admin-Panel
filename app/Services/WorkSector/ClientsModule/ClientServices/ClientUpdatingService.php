@@ -2,11 +2,10 @@
 
 namespace App\Services\WorkSector\ClientsModule\ClientServices;
 
+use App\Http\Requests\WorkSector\ClientsModule\UpdatingClientRequest;
+use App\Services\CoreServices\CRUDServices\CRUDServiceTypes\UpdatingServices\UpdatingService;
 
-use App\Http\Requests\ClientsModule\Clients\UpdatingClientRequest;
-use App\Services\WorkSector\WorkSectorUpdatingService;
-
-class ClientUpdatingService extends WorkSectorUpdatingService
+class ClientUpdatingService extends UpdatingService
 {
 
     protected function getDefinitionUpdatingFailingErrorMessage(): string

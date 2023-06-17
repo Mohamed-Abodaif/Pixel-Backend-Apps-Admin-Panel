@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Services\WorkSector\SystemConfigurationServices\DropdownList\TimesheetSubCategoriesOperations;
+namespace App\Services\WorkSector\SystemConfigurationServices\DropdownLists\TimesheetSubCategoriesOperations;
+
+use App\Services\WorkSector\SystemConfigurationServices\SystemConfigurationDeletingService;
 
 
 
-use App\Services\SystemConfigurationsManagementServices\SystemConfigurationDeletingService;
 
 class TimesheetSubCategoryDeletingService extends SystemConfigurationDeletingService
 {

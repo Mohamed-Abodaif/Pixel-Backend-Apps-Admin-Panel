@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Response;
 use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\WorkSector\SystemConfigurationModels\Tender;
 use App\Http\Resources\WorkSector\SystemConfigurationResources\DropdownLists\TendersResource;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\TendersOperations\TenderStoringService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\TendersOperations\TenderDeletingService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\TendersOperations\TenderUpdatingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\TendersOperations\TenderStoringService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\TendersOperations\TenderDeletingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\TendersOperations\TenderUpdatingService;
 
 class TendersController extends Controller
 {

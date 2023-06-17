@@ -9,7 +9,7 @@ use App\Models\PurchaseInvoice;
 use App\Models\SystemConfig\Currency;
 use App\Models\SystemConfig\ExpenseType;
 use App\Models\SystemConfig\PaymentMethod;
-use App\Models\User;
+use App\Models\WorkSector\UsersModule\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ExpenseFactory extends Factory

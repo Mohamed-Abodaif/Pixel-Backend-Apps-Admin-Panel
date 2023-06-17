@@ -10,9 +10,10 @@ use App\Http\Resources\SingleResource;
 use Illuminate\Support\Facades\Response;
 use Rap2hpoutre\FastExcel\SheetCollection;
 use App\Models\WorkSector\SystemConfigurationModels\TaxType;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\TaxTypesOperations\TaxTypeStoringService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\TaxTypesOperations\TaxTypeDeletingService;
-use App\Services\WorkSector\SystemConfigurationServices\DropdownList\TaxTypesOperations\TaxTypeUpdatingService;
+use App\Http\Resources\WorkSector\SystemConfigurationResources\DropdownLists\TaxTypeResource;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\TaxTypesOperations\TaxTypeStoringService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\TaxTypesOperations\TaxTypeDeletingService;
+use App\Services\WorkSector\SystemConfigurationServices\DropdownLists\TaxTypesOperations\TaxTypeUpdatingService;
 
 class TaxTypesController extends Controller
 {
