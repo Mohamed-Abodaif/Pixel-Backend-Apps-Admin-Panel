@@ -32,8 +32,7 @@
         "spatie/laravel-translatable": "^4.3",
         "stancl/tenancy": "^3.6",
         "symfony/symfony": "5.4.x",
-        "tymon/jwt-auth": "^1.0@dev",
-        "ext-zip": "*"
+        "tymon/jwt-auth": "^1.0@dev"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "3.5.1",
